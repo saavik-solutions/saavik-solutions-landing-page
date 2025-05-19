@@ -187,34 +187,25 @@ export default function Products() {
         </motion.div>
 
         <motion.div
-          className="mx-auto mb-8 w-[90%] overflow-hidden rounded-lg border border-red-900/30 bg-black bg-opacity-50 backdrop-blur-sm sm:mb-10 sm:w-[80%] md:w-[70%] lg:w-[60%]"
-          whileHover={{ scale: 1.02 }}
-          transition={{ type: "spring", stiffness: 300, damping: 10 }}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <div className="relative mx-auto flex h-[120px] w-[200px] items-center justify-center p-4 sm:h-[150px] sm:p-6">
-            <div className="text-center">
-              <motion.div
-                className="mb-1 text-4xl font-bold text-white sm:mb-2 sm:text-5xl md:text-6xl"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-              >
-                digizinc
-              </motion.div>
-              <motion.div
-                className="text-xs font-medium tracking-widest text-white sm:text-sm"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
-              >
-                THE <span className="text-red-500">LAST</span> WAY
-              </motion.div>
-            </div>
-          </div>
-        </motion.div>
+  className="mx-auto mb-8 w-[90%] overflow-hidden rounded-lg border border-red-900/30 bg-black bg-opacity-50 backdrop-blur-sm sm:mb-10 sm:w-[80%] md:w-[70%] lg:w-[60%]"
+  whileHover={{ scale: 1.02 }}
+  transition={{ type: "spring", stiffness: 300, damping: 10 }}
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+>
+  <div className="relative mx-auto h-[120px] w-[400px] sm:h-[250px]">
+    <Image
+      src="/images/digizinc-logo.png" // 🔁 Replace with your actual logo image path
+      alt="DigiZinc Logo"
+      fill
+      className="object-contain"
+      sizes="(max-width: 768px) 250px, 400px"
+      priority
+    />
+  </div>
+</motion.div>
+
 
         <div className="flex justify-center">
           <motion.div
