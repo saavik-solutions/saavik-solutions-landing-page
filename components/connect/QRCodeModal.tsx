@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { X, Download, Wallet, Smartphone } from "lucide-react";
+import { X, Download, Share2 } from "lucide-react";
 import type { ProfileData } from "@/app/connect/profiles";
 
 interface QRCodeModalProps {
@@ -14,6 +14,7 @@ interface QRCodeModalProps {
 
 export function QRCodeModal({ isOpen, onClose, profile }: QRCodeModalProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     if (isOpen && canvasRef.current) {
@@ -24,7 +25,6 @@ export function QRCodeModal({ isOpen, onClose, profile }: QRCodeModalProps) {
   const generateQRCode = async () => {
     if (!canvasRef.current) return;
 
-    // Use production URL from profile, fallback to current page URL
     const targetUrl = profile.cardUrl || window.location.href;
     const url = encodeURIComponent(targetUrl);
     const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${url}&bgcolor=ffffff&color=000000`;
@@ -53,6 +53,27 @@ export function QRCodeModal({ isOpen, onClose, profile }: QRCodeModalProps) {
     link.click();
   };
 
+  const handleShare = async () => {
+    const targetUrl = profile.cardUrl || window.location.href;
+    
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: `${profile.name} - ${profile.company}`,
+          text: `Connect with ${profile.name}`,
+          url: targetUrl,
+        });
+      } catch (err) {
+        // User cancelled or error
+      }
+    } else {
+      // Fallback: copy to clipboard
+      await navigator.clipboard.writeText(targetUrl);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -66,7 +87,7 @@ export function QRCodeModal({ isOpen, onClose, profile }: QRCodeModalProps) {
             className="absolute inset-0 bg-black/70 backdrop-blur-md"
           />
 
-          {/* Modal - Centered */}
+          {/* Modal */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -85,7 +106,6 @@ export function QRCodeModal({ isOpen, onClose, profile }: QRCodeModalProps) {
 
             {/* Header with Profile */}
             <div className="bg-gradient-to-br from-gray-900 to-gray-800 px-6 pb-8 pt-6 text-center">
-              {/* Profile Image */}
               <div className="mx-auto mb-4 h-20 w-20 overflow-hidden rounded-full border-4 border-white/30 shadow-lg">
                 <Image
                   src={profile.profileImage}
@@ -115,6 +135,7 @@ export function QRCodeModal({ isOpen, onClose, profile }: QRCodeModalProps) {
 
               {/* Action Buttons */}
               <div className="space-y-3">
+                {/* Primary: Download QR */}
                 <button
                   onClick={handleDownloadQR}
                   className="flex w-full items-center justify-center gap-2 rounded-xl bg-gray-900 px-6 py-3 font-medium text-white transition-colors hover:bg-gray-800"
@@ -123,20 +144,14 @@ export function QRCodeModal({ isOpen, onClose, profile }: QRCodeModalProps) {
                   Download QR Code
                 </button>
 
-                <div className="flex gap-3">
-                  <button
-                    className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"
-                  >
-                    <Wallet className="h-4 w-4" />
-                    Add to Wallet
-                  </button>
-                  <button
-                    className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"
-                  >
-                    <Smartphone className="h-4 w-4" />
-                    Home Screen
-                  </button>
-                </div>
+                {/* Secondary: Share Link */}
+                <button
+                  onClick={handleShare}
+                  className="flex w-full items-center justify-center gap-2 rounded-xl border border-gray-200 bg-white px-6 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"
+                >
+                  <Share2 className="h-4 w-4" />
+                  {copied ? "Link Copied!" : "Share Link"}
+                </button>
               </div>
             </div>
           </motion.div>
