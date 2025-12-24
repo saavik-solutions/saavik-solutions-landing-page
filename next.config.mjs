@@ -19,6 +19,18 @@ const nextConfig = {
         protocol: "https",
         hostname: "images.unsplash.com",
       },
+      {
+        protocol: "https",
+        hostname: "cdn0030.qrcodechimp.com",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn0070.qrcodechimp.com",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.jsdelivr.net",
+      },
     ],
   },
   eslint: {

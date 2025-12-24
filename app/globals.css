@@ -118,12 +118,37 @@ section {
 }
 
 @keyframes blink {
-  0% { opacity: 0.2; }
-  50% { opacity: 1; }
-  100% { opacity: 0.2; }
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
 }
 
 .animate-blink {
   animation: blink 1.5s infinite;
 }
 
+/* Connect Page Styles */
+.connect-card {
+  @apply rounded-2xl bg-white/95 backdrop-blur-sm p-5;
+  box-shadow: 0 7px 29px rgba(100, 100, 111, 0.2);
+}
+
+.connect-card h2 {
+  @apply text-gray-800;
+}
+
+/* Hide scrollbar for connect pages on mobile */
+.connect-page-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.connect-page-scroll::-webkit-scrollbar {
+  display: none;
+}
