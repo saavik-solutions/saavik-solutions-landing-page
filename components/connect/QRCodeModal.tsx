@@ -3,8 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { X, Download, Share2 } from "lucide-react";
+import { X, Download, Share2, UserPlus, Smartphone } from "lucide-react";
 import type { ProfileData } from "@/app/connect/profiles";
+import { downloadVCard } from "@/lib/generateVCard";
 
 interface QRCodeModalProps {
   isOpen: boolean;
@@ -15,6 +16,7 @@ interface QRCodeModalProps {
 export function QRCodeModal({ isOpen, onClose, profile }: QRCodeModalProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [copied, setCopied] = useState(false);
+  const [showInstallHelp, setShowInstallHelp] = useState(false);
 
   useEffect(() => {
     if (isOpen && canvasRef.current) {
@@ -51,6 +53,20 @@ export function QRCodeModal({ isOpen, onClose, profile }: QRCodeModalProps) {
     link.download = `${profile.name.replace(/\s+/g, "_")}_QR.png`;
     link.href = canvasRef.current.toDataURL("image/png");
     link.click();
+  };
+
+  const handleSaveContact = () => {
+    const linkedinLink = profile.socialLinks.find(l => l.type === 'linkedin')?.url;
+    
+    downloadVCard({
+      name: profile.name,
+      title: profile.title,
+      company: profile.company,
+      phone: profile.phone,
+      email: profile.email,
+      website: profile.website,
+      linkedin: linkedinLink
+    });
   };
 
   const handleShare = async () => {
@@ -93,7 +109,7 @@ export function QRCodeModal({ isOpen, onClose, profile }: QRCodeModalProps) {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="relative z-10 w-full max-w-sm overflow-hidden rounded-3xl bg-white shadow-2xl"
+            className="relative z-10 w-full max-w-sm overflow-hidden rounded-3xl bg-white shadow-2xl max-h-[90vh] overflow-y-auto"
           >
             {/* Close Button */}
             <button
@@ -124,35 +140,89 @@ export function QRCodeModal({ isOpen, onClose, profile }: QRCodeModalProps) {
 
             {/* QR Code Section */}
             <div className="bg-white px-6 py-6 text-center">
-              <p className="mb-4 text-sm text-gray-500">
-                Scan to save this digital business card
-              </p>
+              {!showInstallHelp ? (
+                <>
+                  <p className="mb-4 text-sm text-gray-500">
+                    Scan to get this digital business card
+                  </p>
 
-              {/* QR Code */}
-              <div className="mx-auto mb-6 flex h-48 w-48 items-center justify-center rounded-2xl border border-gray-100 bg-white p-2 shadow-inner">
-                <canvas ref={canvasRef} className="rounded-lg" />
-              </div>
+                  {/* QR Code */}
+                  <div className="mx-auto mb-6 flex h-48 w-48 items-center justify-center rounded-2xl border border-gray-100 bg-white p-2 shadow-inner">
+                    <canvas ref={canvasRef} className="rounded-lg" />
+                  </div>
 
-              {/* Action Buttons */}
-              <div className="space-y-3">
-                {/* Primary: Download QR */}
-                <button
-                  onClick={handleDownloadQR}
-                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-gray-900 px-6 py-3 font-medium text-white transition-colors hover:bg-gray-800"
-                >
-                  <Download className="h-4 w-4" />
-                  Download QR Code
-                </button>
+                  {/* Action Buttons */}
+                  <div className="grid grid-cols-2 gap-3">
+                    {/* Save Contact */}
+                    <button
+                      onClick={handleSaveContact}
+                      className="col-span-2 flex items-center justify-center gap-2 rounded-xl bg-gray-900 px-4 py-3 font-medium text-white transition-colors hover:bg-gray-800"
+                    >
+                      <UserPlus className="h-4 w-4" />
+                      Save Contact
+                    </button>
 
-                {/* Secondary: Share Link */}
-                <button
-                  onClick={handleShare}
-                  className="flex w-full items-center justify-center gap-2 rounded-xl border border-gray-200 bg-white px-6 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"
-                >
-                  <Share2 className="h-4 w-4" />
-                  {copied ? "Link Copied!" : "Share Link"}
-                </button>
-              </div>
+                     {/* Download QR */}
+                     <button
+                      onClick={handleDownloadQR}
+                      className="flex items-center justify-center gap-2 rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100"
+                    >
+                      <Download className="h-4 w-4" />
+                      Save QR
+                    </button>
+
+                    {/* Share Link */}
+                    <button
+                      onClick={handleShare}
+                      className="flex items-center justify-center gap-2 rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100"
+                    >
+                      <Share2 className="h-4 w-4" />
+                      {copied ? "Copied!" : "Share"}
+                    </button>
+
+                    {/* Add to Home Screen */}
+                    <button
+                      onClick={() => setShowInstallHelp(true)}
+                      className="col-span-2 flex items-center justify-center gap-2 rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"
+                    >
+                      <Smartphone className="h-4 w-4" />
+                      Add to Home Screen
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <div className="text-left animate-in fade-in slide-in-from-bottom-4 duration-300">
+                  <div className="mb-4 flex items-center justify-between">
+                    <h4 className="font-semibold text-gray-900">Add to Home Screen</h4>
+                    <button 
+                      onClick={() => setShowInstallHelp(false)}
+                      className="text-sm text-gray-500 hover:text-gray-900"
+                    >
+                      Back
+                    </button>
+                  </div>
+                  
+                  <div className="space-y-4 text-sm text-gray-600">
+                    <div className="rounded-xl bg-gray-50 p-4">
+                      <p className="mb-2 font-medium text-gray-900">For iPhone (Safari)</p>
+                      <ol className="list-decimal space-y-1 pl-4">
+                        <li>Tap the <span className="font-semibold">Share</span> button at the bottom</li>
+                        <li>Scroll down and tap <span className="font-semibold">Add to Home Screen</span></li>
+                        <li>Tap <span className="font-semibold">Add</span> to confirm</li>
+                      </ol>
+                    </div>
+
+                    <div className="rounded-xl bg-gray-50 p-4">
+                      <p className="mb-2 font-medium text-gray-900">For Android (Chrome)</p>
+                      <ol className="list-decimal space-y-1 pl-4">
+                        <li>Tap the <span className="font-semibold">Menu</span> (3 dots) icon</li>
+                        <li>Tap <span className="font-semibold">Add to Home Screen</span></li>
+                        <li>Tap <span className="font-semibold">Add</span> to confirm</li>
+                      </ol>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </motion.div>
         </div>

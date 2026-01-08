@@ -28,20 +28,33 @@ export async function generateMetadata({ params }: ConnectPageProps): Promise<Me
     };
   }
 
+  const description = `Connect with ${profile.name} - ${profile.title} at ${profile.company}`;
+  const pageUrl = profile.cardUrl || `https://www.saaviksolutions.com/connect/${slug}`;
+
   return {
     title: `${profile.name} | ${profile.company}`,
-    description: `Connect with ${profile.name} - ${profile.title} at ${profile.company}`,
+    description,
     openGraph: {
-      title: profile.name,
-      description: `${profile.title} at ${profile.company}`,
+      title: `${profile.name} - ${profile.title}`,
+      description: `${profile.title} at ${profile.company}. Digital Business Card.`,
       type: "profile",
-      images: [profile.profileImage],
+      url: pageUrl,
+      siteName: "SaaVik Solutions",
+      images: [
+        {
+          url: profile.profileImage,
+          width: 400,
+          height: 400,
+          alt: `${profile.name} - ${profile.title} at ${profile.company}`,
+        },
+      ],
     },
     twitter: {
-      card: "summary_large_image",
-      title: profile.name,
+      card: "summary",
+      title: `${profile.name} - ${profile.title}`,
       description: `${profile.title} at ${profile.company}`,
       images: [profile.profileImage],
+      creator: "@saaviksolutions",
     },
   };
 }
