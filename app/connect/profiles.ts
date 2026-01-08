@@ -44,7 +44,9 @@ export const profiles: Record<string, ProfileData> = {
     whatsapp: "https://wa.me/message/LED3GVDLE7UAI1",
     website: "https://www.saaviksolutions.com",
     cardUrl: "https://www.saaviksolutions.com/connect/bhargava-raj",
-    ogImage: "/og-bhargava-raj.png",
+    // Public S3 URL for OG image (faster CDN, works globally)
+    // Fallback: local image at /og-bhargava-raj.png
+    ogImage: "https://general-bucked.s3.eu-north-1.amazonaws.com/og-bhargava-raj.png",
     socialLinks: [
       {
         type: "linkedin",

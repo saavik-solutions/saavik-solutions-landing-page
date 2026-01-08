@@ -31,10 +31,12 @@ export async function generateMetadata({ params }: ConnectPageProps): Promise<Me
   const description = `Connect with ${profile.name} - ${profile.title} at ${profile.company}`;
   const pageUrl = profile.cardUrl || `https://www.saaviksolutions.com/connect/${slug}`;
   
-  // Use local ogImage if available, otherwise fall back to profileImage
-  // Local images are more reliable for social sharing (WhatsApp, mobile, etc.)
+  // Use ogImage if available (can be absolute URL like S3 or relative path)
+  // Falls back to profileImage if not set
   const ogImageUrl = profile.ogImage 
-    ? `https://www.saaviksolutions.com${profile.ogImage}`
+    ? (profile.ogImage.startsWith('http') 
+        ? profile.ogImage 
+        : `https://www.saaviksolutions.com${profile.ogImage}`)
     : profile.profileImage;
 
   return {
