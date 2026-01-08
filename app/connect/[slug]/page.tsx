@@ -30,6 +30,12 @@ export async function generateMetadata({ params }: ConnectPageProps): Promise<Me
 
   const description = `Connect with ${profile.name} - ${profile.title} at ${profile.company}`;
   const pageUrl = profile.cardUrl || `https://www.saaviksolutions.com/connect/${slug}`;
+  
+  // Use local ogImage if available, otherwise fall back to profileImage
+  // Local images are more reliable for social sharing (WhatsApp, mobile, etc.)
+  const ogImageUrl = profile.ogImage 
+    ? `https://www.saaviksolutions.com${profile.ogImage}`
+    : profile.profileImage;
 
   return {
     title: `${profile.name} | ${profile.company}`,
@@ -42,7 +48,7 @@ export async function generateMetadata({ params }: ConnectPageProps): Promise<Me
       siteName: "SaaVik Solutions",
       images: [
         {
-          url: profile.profileImage,
+          url: ogImageUrl,
           width: 400,
           height: 400,
           alt: `${profile.name} - ${profile.title} at ${profile.company}`,
@@ -53,7 +59,7 @@ export async function generateMetadata({ params }: ConnectPageProps): Promise<Me
       card: "summary",
       title: `${profile.name} - ${profile.title}`,
       description: `${profile.title} at ${profile.company}`,
-      images: [profile.profileImage],
+      images: [ogImageUrl],
       creator: "@saaviksolutions",
     },
   };

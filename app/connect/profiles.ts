@@ -25,6 +25,7 @@ export interface ProfileData {
   whatsapp?: string;
   website?: string;
   cardUrl?: string; // Production URL for QR code
+  ogImage?: string; // Local image path for Open Graph (social sharing)
   socialLinks: SocialLink[];
   ventures: VentureData[];
 }
@@ -43,6 +44,7 @@ export const profiles: Record<string, ProfileData> = {
     whatsapp: "https://wa.me/message/LED3GVDLE7UAI1",
     website: "https://www.saaviksolutions.com",
     cardUrl: "https://www.saaviksolutions.com/connect/bhargava-raj",
+    ogImage: "/og-bhargava-raj.png",
     socialLinks: [
       {
         type: "linkedin",
