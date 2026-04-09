@@ -28,6 +28,7 @@ export interface ProfileData {
   ogImage?: string; // Local image path for Open Graph (social sharing)
   socialLinks: SocialLink[];
   ventures: VentureData[];
+  showVenturesTitle?: boolean;
 }
 
 export const profiles: Record<string, ProfileData> = {
@@ -68,7 +69,41 @@ export const profiles: Record<string, ProfileData> = {
         logo: "https://cdn0030.qrcodechimp.com/qr/PROD/6828db8fd44a5352325c9c9d/fm/gemini_generated_image_lnzb47lnzb47lnzb.png?v=1766380689181",
         logoBg: "#1a1a1a",
       },
+      {
+        name: "EA Overseas",
+        url: "https://eaoverseas.com/",
+        logo: "/owl.webp",
+      },
     ],
+    showVenturesTitle: true,
+  },
+  "sridhar-palley": {
+    name: "Sridhar Palley",
+    title: "Business Development Manager",
+    company: "SaaVik Solutions Inc",
+    profileImage: "/sridhar.png",
+    companyLogo:
+      "https://cdn0030.qrcodechimp.com/qr/PROD/6828db8fd44a5352325c9c9d/fm/frame_1116607108.png?v=1766380554188",
+    phone: "+91 97035 62551",
+    email: "sridhar.p@saaviksolutions.com",
+    website: "https://www.saaviksolutions.com",
+    cardUrl: "https://www.saaviksolutions.com/connect/sridhar-palley",
+    socialLinks: [
+      {
+        type: "linkedin",
+        url: "https://www.linkedin.com/in/sridhar-palley-08317a68/",
+        title: "LinkedIn",
+        subtitle: "Connect on LinkedIn",
+      },
+    ],
+    ventures: [
+      {
+        name: "SaaVik Solutions",
+        url: "https://www.saaviksolutions.com/",
+        logo: "https://cdn0030.qrcodechimp.com/qr/PROD/6828db8fd44a5352325c9c9d/fm/logo_1.jpg?v=1766380728389",
+      },
+    ],
+    showVenturesTitle: false,
   },
 };
 

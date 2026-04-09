@@ -60,7 +60,10 @@ export function ConnectPageContent({ profile }: ConnectPageContentProps) {
           <ConnectSocialLinks socialLinks={profile.socialLinks} />
 
           {/* Digital Ventures */}
-          <ConnectWebLinks ventures={profile.ventures} />
+          <ConnectWebLinks 
+            ventures={profile.ventures} 
+            showTitle={profile.showVenturesTitle}
+          />
 
           {/* Bottom Spacing for Floating Buttons */}
           <div className="h-28" />

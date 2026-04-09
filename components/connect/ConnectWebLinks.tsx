@@ -7,9 +7,10 @@ import type { VentureData } from "@/app/connect/profiles";
 
 interface ConnectWebLinksProps {
   ventures: VentureData[];
+  showTitle?: boolean;
 }
 
-export function ConnectWebLinks({ ventures }: ConnectWebLinksProps) {
+export function ConnectWebLinks({ ventures, showTitle }: ConnectWebLinksProps) {
   if (ventures.length === 0) return null;
 
   return (
@@ -19,10 +20,13 @@ export function ConnectWebLinks({ ventures }: ConnectWebLinksProps) {
       transition={{ duration: 0.5, delay: 0.4 }}
       className="connect-card mx-auto max-w-md"
     >
-      <h2 className="mb-4 text-center text-lg font-semibold text-gray-800">
-        Digital Ventures
-      </h2>
+      {showTitle && (
+        <h2 className="mb-4 text-center text-lg font-semibold text-gray-800">
+          Digital Ventures
+        </h2>
+      )}
       
+      {/* Ventures List */}
       <div className="space-y-3">
         {ventures.map((venture, index) => (
           <motion.a
