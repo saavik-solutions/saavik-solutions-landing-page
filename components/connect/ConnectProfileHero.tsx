@@ -104,45 +104,7 @@ export function ConnectProfileHero({ profile }: ConnectProfileHeroProps) {
           <p className="text-sm text-gray-400">{profile.title}</p>
         </motion.div>
 
-        {/* Quick Action Buttons - Below Text like reference */}
-        <motion.div 
-          initial={{ y: 10, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.4 }}
-          className="mt-6 flex justify-center gap-4"
-        >
-          <motion.button
-            whileHover={{ scale: 1.1, backgroundColor: "rgba(59, 130, 246, 0.3)" }}
-            whileTap={{ scale: 0.95 }}
-            onClick={handleCall}
-            className="flex h-14 w-14 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-all"
-            aria-label="Call"
-          >
-            <Phone className="h-6 w-6" />
-          </motion.button>
-          
-          <motion.button
-            whileHover={{ scale: 1.1, backgroundColor: "rgba(239, 68, 68, 0.3)" }}
-            whileTap={{ scale: 0.95 }}
-            onClick={handleEmail}
-            className="flex h-14 w-14 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-all"
-            aria-label="Email"
-          >
-            <Mail className="h-6 w-6" />
-          </motion.button>
-          
-          {profile.whatsapp && (
-            <motion.button
-              whileHover={{ scale: 1.1, backgroundColor: "rgba(34, 197, 94, 0.3)" }}
-              whileTap={{ scale: 0.95 }}
-              onClick={handleWhatsApp}
-              className="flex h-14 w-14 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-all"
-              aria-label="WhatsApp"
-            >
-              <MessageCircle className="h-6 w-6" />
-            </motion.button>
-          )}
-        </motion.div>
+
       </div>
     </motion.div>
   );
