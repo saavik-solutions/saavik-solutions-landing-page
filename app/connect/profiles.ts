@@ -102,6 +102,17 @@ export const profiles: Record<string, ProfileData> = {
         url: "https://www.saaviksolutions.com/",
         logo: "https://cdn0030.qrcodechimp.com/qr/PROD/6828db8fd44a5352325c9c9d/fm/logo_1.jpg?v=1766380728389",
       },
+      {
+        name: "EA Overseas",
+        url: "https://eaoverseas.com/",
+        logo: "/owl.webp",
+      },
+      {
+        name: "Digizinc",
+        url: "https://www.digizinc.com/",
+        logo: "https://cdn0030.qrcodechimp.com/qr/PROD/6828db8fd44a5352325c9c9d/fm/gemini_generated_image_lnzb47lnzb47lnzb.png?v=1766380689181",
+        logoBg: "#1a1a1a",
+      },
     ],
     showVenturesTitle: false,
   },
