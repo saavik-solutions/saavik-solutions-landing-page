@@ -40,11 +40,6 @@ const nextConfig = {
     ignoreBuildErrors: false,
   },
   
-  experimental: {
-    webpackBuildWorker: true,
-    parallelServerBuildTraces: true,
-    parallelServerCompiles: true,
-  },
 }
 
 if (userConfig) {

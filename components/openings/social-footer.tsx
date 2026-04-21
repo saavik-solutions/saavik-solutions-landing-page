@@ -2,7 +2,7 @@ import Link from "next/link"
 
 export default function SocialFooter() {
   return (
-    <footer className="w-full bg-red-600 py-8 text-center text-white">
+    <footer className="w-full bg-[#6A43E7] py-8 text-center text-white">
       <div className="container mx-auto px-4">
         <div className="mb-6">
           <p className="text-sm uppercase tracking-wide">IN SEARCH FOR SOME ACTION</p>

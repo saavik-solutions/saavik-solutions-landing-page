@@ -54,13 +54,13 @@ export default function JobApplicationForm({ jobTitle }: { jobTitle: string }) {
   return (
     <div id="application-form" className="rounded-lg bg-white p-10 shadow-lg">
       <h2 className="mb-8 text-2xl font-bold text-gray-900 md:text-3xl">Apply for {jobTitle}</h2>
-      <div className="mb-8 h-1 w-24 bg-red-600"></div>
+      <div className="mb-8 h-1 w-24 bg-[#6A43E7]"></div>
 
       <form onSubmit={handleSubmit} className="space-y-8">
         {/* Full Name */}
         <div className="space-y-3">
           <Label htmlFor="fullName" className="text-sm font-medium text-gray-700">
-            Full Name <span className="text-red-600">*</span>
+            Full Name <span className="text-purple-600">*</span>
           </Label>
           <Input
             id="fullName"
@@ -69,14 +69,14 @@ export default function JobApplicationForm({ jobTitle }: { jobTitle: string }) {
             onChange={handleChange}
             placeholder="John Doe"
             required
-            className="border-gray-300 bg-gray-50 px-4 py-3 focus:border-red-500 focus:ring-red-500"
+            className="border-gray-300 bg-gray-50 px-4 py-3 focus:border-purple-500 focus:ring-purple-500"
           />
         </div>
 
         {/* Email */}
         <div className="space-y-3">
           <Label htmlFor="email" className="text-sm font-medium text-gray-700">
-            Email Address <span className="text-red-600">*</span>
+            Email Address <span className="text-purple-600">*</span>
           </Label>
           <Input
             id="email"
@@ -86,14 +86,14 @@ export default function JobApplicationForm({ jobTitle }: { jobTitle: string }) {
             onChange={handleChange}
             placeholder="john@example.com"
             required
-            className="border-gray-300 bg-gray-50 px-4 py-3 focus:border-red-500 focus:ring-red-500"
+            className="border-gray-300 bg-gray-50 px-4 py-3 focus:border-purple-500 focus:ring-purple-500"
           />
         </div>
 
         {/* Phone */}
         <div className="space-y-3">
           <Label htmlFor="phone" className="text-sm font-medium text-gray-700">
-            Phone Number <span className="text-red-600">*</span>
+            Phone Number <span className="text-purple-600">*</span>
           </Label>
           <Input
             id="phone"
@@ -102,7 +102,7 @@ export default function JobApplicationForm({ jobTitle }: { jobTitle: string }) {
             onChange={handleChange}
             placeholder="+1 (555) 000-0000"
             required
-            className="border-gray-300 bg-gray-50 px-4 py-3 focus:border-red-500 focus:ring-red-500"
+            className="border-gray-300 bg-gray-50 px-4 py-3 focus:border-purple-500 focus:ring-purple-500"
           />
         </div>
 
@@ -117,14 +117,14 @@ export default function JobApplicationForm({ jobTitle }: { jobTitle: string }) {
             value={formData.socialLinks}
             onChange={handleChange}
             placeholder="https://linkedin.com/in/johndoe, https://github.com/johndoe"
-            className="border-gray-300 bg-gray-50 px-4 py-3 focus:border-red-500 focus:ring-red-500"
+            className="border-gray-300 bg-gray-50 px-4 py-3 focus:border-purple-500 focus:ring-purple-500"
           />
         </div>
 
         {/* Resume Upload */}
         <div className="space-y-3">
           <Label htmlFor="resume" className="text-sm font-medium text-gray-700">
-            Resume <span className="text-red-600">*</span>
+            Resume <span className="text-purple-600">*</span>
           </Label>
           <div className="mt-1">
             <label
@@ -162,7 +162,7 @@ export default function JobApplicationForm({ jobTitle }: { jobTitle: string }) {
             value={formData.additionalInfo}
             onChange={handleChange}
             placeholder="Tell us why you're interested in this position and any additional information you'd like to share..."
-            className="min-h-[180px] border-gray-300 bg-gray-50 px-4 py-3 focus:border-red-500 focus:ring-red-500"
+            className="min-h-[180px] border-gray-300 bg-gray-50 px-4 py-3 focus:border-purple-500 focus:ring-purple-500"
           />
         </div>
 
@@ -170,7 +170,7 @@ export default function JobApplicationForm({ jobTitle }: { jobTitle: string }) {
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="w-full rounded-md bg-red-600 px-10 py-3 text-base font-medium hover:bg-red-700 disabled:bg-gray-400 md:w-auto"
+          className="w-full rounded-md bg-[#6A43E7] px-10 py-3 text-base font-medium hover:bg-[#4f2cc3] disabled:bg-gray-400 md:w-auto"
         >
           {isSubmitting ? "Submitting..." : "Submit Application"}
         </Button>

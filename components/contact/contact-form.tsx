@@ -44,14 +44,14 @@ export default function ContactForm() {
     <div className="rounded-lg bg-white p-10 shadow-lg">
       <div className="mb-10">
         <h2 className="text-2xl font-bold text-black md:text-3xl">Get a Free Quote</h2>
-        <div className="mt-3 h-1 w-24 bg-red-600"></div>
+        <div className="mt-3 h-1 w-24 bg-[#6A43E7]"></div>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-8">
         <div className="grid gap-8 md:grid-cols-2">
           <div className="space-y-3">
             <label htmlFor="name" className="text-sm font-medium text-gray-700">
-              Your Name <span className="text-red-600">*</span>
+              Your Name <span className="text-purple-600">*</span>
             </label>
             <Input
               id="name"
@@ -60,12 +60,12 @@ export default function ContactForm() {
               onChange={handleChange}
               placeholder="John Doe"
               required
-              className="border-gray-300 bg-gray-50 px-4 py-3 focus:border-red-500 focus:ring-red-500"
+              className="border-gray-300 bg-gray-50 px-4 py-3 focus:border-purple-500 focus:ring-purple-500"
             />
           </div>
           <div className="space-y-3">
             <label htmlFor="email" className="text-sm font-medium text-gray-700">
-              Email Address <span className="text-red-600">*</span>
+              Email Address <span className="text-purple-600">*</span>
             </label>
             <Input
               id="email"
@@ -75,7 +75,7 @@ export default function ContactForm() {
               onChange={handleChange}
               placeholder="john@example.com"
               required
-              className="border-gray-300 bg-gray-50 px-4 py-3 focus:border-red-500 focus:ring-red-500"
+              className="border-gray-300 bg-gray-50 px-4 py-3 focus:border-purple-500 focus:ring-purple-500"
             />
           </div>
         </div>
@@ -91,15 +91,15 @@ export default function ContactForm() {
               value={formData.phone}
               onChange={handleChange}
               placeholder="+1 (555) 000-0000"
-              className="border-gray-300 bg-gray-50 px-4 py-3 focus:border-red-500 focus:ring-red-500"
+              className="border-gray-300 bg-gray-50 px-4 py-3 focus:border-purple-500 focus:ring-purple-500"
             />
           </div>
           <div className="space-y-3">
             <label htmlFor="subject" className="text-sm font-medium text-gray-700">
-              Subject <span className="text-red-600">*</span>
+              Subject <span className="text-purple-600">*</span>
             </label>
             <Select value={formData.subject} onValueChange={handleSubjectChange} required>
-              <SelectTrigger className="border-gray-300 bg-gray-50 px-4 py-3 focus:border-red-500 focus:ring-red-500">
+              <SelectTrigger className="border-gray-300 bg-gray-50 px-4 py-3 focus:border-purple-500 focus:ring-purple-500">
                 <SelectValue placeholder="Select a subject" />
               </SelectTrigger>
               <SelectContent>
@@ -115,7 +115,7 @@ export default function ContactForm() {
 
         <div className="space-y-3">
           <label htmlFor="message" className="text-sm font-medium text-gray-700">
-            Your Message <span className="text-red-600">*</span>
+            Your Message <span className="text-purple-600">*</span>
           </label>
           <Textarea
             id="message"
@@ -124,14 +124,14 @@ export default function ContactForm() {
             onChange={handleChange}
             placeholder="Tell us about your project or inquiry..."
             required
-            className="min-h-[180px] border-gray-300 bg-gray-50 px-4 py-3 focus:border-red-500 focus:ring-red-500"
+            className="min-h-[180px] border-gray-300 bg-gray-50 px-4 py-3 focus:border-purple-500 focus:ring-purple-500"
           />
         </div>
 
         <div className="pt-4">
           <Button
             type="submit"
-            className="rounded-md bg-red-600 px-10 py-3 text-base font-medium transition-all duration-300 hover:bg-red-700 hover:shadow-lg"
+            className="rounded-md bg-[#6A43E7] px-10 py-3 text-base font-medium transition-all duration-300 hover:bg-[#4f2cc3] hover:shadow-lg"
           >
             SEND MESSAGE
           </Button>

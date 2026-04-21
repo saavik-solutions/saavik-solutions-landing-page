@@ -5,7 +5,6 @@ import Navbar from "./navbar";
 import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import heroBgLg from '../public/home-hero-bg-lg.png'; // Import only the largest, Next.js will handle the rest
 
 // Reusable AnimatedDiv component (assuming you have it)
 import { AnimatedDiv } from "@/components/ui/animated-div";
@@ -14,7 +13,6 @@ export default function Hero() {
   const carouselRef = useRef<HTMLDivElement>(null);
   const [windowWidth, setWindowWidth] = useState(0);
   const isDesktop = windowWidth >= 1280;
-  const isMobileOrTablet = windowWidth < 1280;
 
   useEffect(() => {
     setWindowWidth(window.innerWidth);

@@ -41,7 +41,7 @@ export default function JobHeader({ job }: { job: any }) {
 
           {/* Job Type Badge */}
           <div className="mb-4">
-            <span className="rounded-full bg-red-600 px-3 py-1 text-xs font-medium uppercase text-white">
+            <span className="rounded-full bg-[#6A43E7] px-3 py-1 text-xs font-medium uppercase text-white">
               {job.type}
             </span>
           </div>
@@ -68,7 +68,7 @@ export default function JobHeader({ job }: { job: any }) {
           {/* Quick Apply Button - For Mobile */}
           <div className="mt-8 md:hidden">
             <Button
-              className="w-full rounded-md bg-red-600 py-2 text-sm font-medium hover:bg-red-700"
+              className="w-full rounded-md bg-[#6A43E7] py-2 text-sm font-medium hover:bg-[#4f2cc3]"
               onClick={() => {
                 const formElement = document.getElementById("application-form")
                 if (formElement) {

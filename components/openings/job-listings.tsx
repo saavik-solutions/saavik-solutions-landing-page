@@ -104,8 +104,8 @@ export default function JobListings() {
                   className="group overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:shadow-md"
                 >
                   {/* Card Header */}
-                  <div className="bg-red-500 p-4 pb-8">
-                    <div className="mb-2 inline-block rounded-full bg-white px-2 py-1 text-xs font-medium text-red-500">
+                  <div className="bg-[#6A43E7] p-4 pb-8">
+                    <div className="mb-2 inline-block rounded-full bg-white px-2 py-1 text-xs font-medium text-purple-600">
                       {job.type}
                     </div>
                     <h3 className="text-xl font-bold text-white">{job.title}</h3>
@@ -117,7 +117,7 @@ export default function JobListings() {
                       {job.tags.map((tag, index) => (
                         <span
                           key={index}
-                          className="rounded-full border border-red-200 bg-red-50 px-2 py-1 text-xs font-medium text-red-500"
+                          className="rounded-full border border-purple-200 bg-purple-50 px-2 py-1 text-xs font-medium text-purple-600"
                         >
                           {tag}
                         </span>
@@ -126,7 +126,7 @@ export default function JobListings() {
                     <div className="mt-4 flex items-center justify-between">
                       <span className="text-xs text-gray-500">Posted on 01 Apr</span>
                       <Button
-                        className="rounded-md bg-white text-xs font-medium text-red-500 hover:bg-red-50"
+                        className="rounded-md bg-white text-xs font-medium text-purple-600 hover:bg-purple-50"
                         variant="outline"
                       >
                         Apply Now

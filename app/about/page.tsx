@@ -152,7 +152,7 @@ export default function AboutPage() {
               {
                 icon: <Layers className="h-12 w-12 text-[#6A43E7]" />,
                 title: "Software Solutions",
-                description: "Custom software development tailopurple to address your unique business challenges."
+                description: "Custom software development tailored to address your unique business challenges."
               },
               {
                 icon: <Users className="h-12 w-12 text-[#6A43E7]" />,

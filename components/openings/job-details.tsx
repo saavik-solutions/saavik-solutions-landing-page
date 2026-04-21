@@ -52,7 +52,7 @@ export default function JobDetails({ job }: { job: any }) {
         <h2 className="mb-4 text-xl font-bold text-gray-900">Skills</h2>
         <div className="flex flex-wrap gap-2">
           {job.skills.map((skill: string, index: number) => (
-            <span key={index} className="rounded-full bg-red-100 px-3 py-1 text-sm font-medium text-red-600">
+            <span key={index} className="rounded-full bg-purple-100 px-3 py-1 text-sm font-medium text-purple-600">
               {skill}
             </span>
           ))}

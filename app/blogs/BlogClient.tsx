@@ -1,6 +1,6 @@
 "use client"
 
-import { JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal, useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 //import Link from "next/link"
 import Image from "next/image"
 import { Input } from "@/components/ui/input"
@@ -66,9 +66,7 @@ const categories = [
 export default function BlogClient({ posts }: { posts: any[] }) {
   const [activeCategory, setActiveCategory] = useState("All")
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-  const allTags = posts.flatMap((post) => post.tags || [])
   const [searchQuery, setSearchQuery] = useState("");
-  const uniqueCategories = ["All", ...Array.from(new Set(allTags))]
   const [loading, setLoading] = useState(false);
   const filteredPosts = posts.filter((post) => {
     if (!post.title) return false;
@@ -178,7 +176,7 @@ useEffect(() => {
 <div className="mb-6 lg:hidden">
   <div className="overflow-hidden rounded-xl shadow-md">
     <button
-      onClick={() => setIsDropdownOpen((prev: any) => !prev)}
+      onClick={() => setIsDropdownOpen((prev: boolean) => !prev)}
       className="flex w-full items-center justify-between bg-gradient-to-r from-[#6A43E7] to-[#7F38E8] p-4 text-white rounded-t-xl"
     >
       <h3 className="text-lg font-bold">{activeCategory || "Select Category"}</h3>

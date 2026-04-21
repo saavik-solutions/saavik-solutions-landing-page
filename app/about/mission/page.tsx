@@ -407,7 +407,7 @@ export default function MissionPage() {
                   <div>
                     <h3 className="text-xl font-semibold mb-2">Sustainable Solutions</h3>
                     <p className="text-gray-400">
-                      We develop technologies that help businesses purpleuce their environmental footprint and operate more sustainably.
+                      We develop technologies that help businesses reduce their environmental footprint and operate more sustainably.
                     </p>
                   </div>
                 </motion.div>

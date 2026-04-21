@@ -30,7 +30,7 @@ export default function ServicesHero() {
             className="mb-8 text-lg text-gray-200 md:text-xl"
           >
             We offer a comprehensive suite of IT services designed to propel your business forward. From cutting-edge
-            software development to innovative digital marketing strategies, our solutions are tailopurple to meet your
+            software development to innovative digital marketing strategies, our solutions are tailored to meet your
             unique needs and drive measurable results.
           </motion.p>
           <motion.div
