@@ -3,7 +3,7 @@ import { getAllPosts } from '@/lib/getPosts'
 import { profiles } from './connect/profiles'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const posts = getAllPosts()
+  const posts = getAllPosts() as Array<{ slug: string; date: string }>
   const baseUrl = 'https://www.saaviksolutions.com'
 
   // Blog posts
