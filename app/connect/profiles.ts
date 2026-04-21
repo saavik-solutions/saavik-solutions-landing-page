@@ -116,6 +116,45 @@ export const profiles: Record<string, ProfileData> = {
     ],
     showVenturesTitle: false,
   },
+  "nikhil-shukla": {
+    name: "Nikhil Shukla",
+    title: "Product, Operations & Growth",
+    company: "SaaVik Solutions Inc",
+    profileImage: "/nikhil-shukla.png",
+    companyLogo:
+      "https://cdn0030.qrcodechimp.com/qr/PROD/6828db8fd44a5352325c9c9d/fm/frame_1116607108.png?v=1766380554188",
+    phone: "+91 99301 35689",
+    email: "nikhil@saaviksolutions.com",
+    website: "https://www.saaviksolutions.com",
+    cardUrl: "https://www.saaviksolutions.com/connect/nikhil-shukla",
+    socialLinks: [
+      {
+        type: "linkedin",
+        url: "https://www.linkedin.com/in/nikhilshuklahere",
+        title: "LinkedIn",
+        subtitle: "Connect on LinkedIn",
+      },
+    ],
+    ventures: [
+      {
+        name: "SaaVik Solutions",
+        url: "https://www.saaviksolutions.com/",
+        logo: "https://cdn0030.qrcodechimp.com/qr/PROD/6828db8fd44a5352325c9c9d/fm/logo_1.jpg?v=1766380728389",
+      },
+      {
+        name: "Digizinc",
+        url: "https://www.digizinc.com/",
+        logo: "https://cdn0030.qrcodechimp.com/qr/PROD/6828db8fd44a5352325c9c9d/fm/gemini_generated_image_lnzb47lnzb47lnzb.png?v=1766380689181",
+        logoBg: "#1a1a1a",
+      },
+      {
+        name: "EA Overseas",
+        url: "https://eaoverseas.com/",
+        logo: "/owl.webp",
+      },
+    ],
+    showVenturesTitle: false,
+  },
 };
 
 export function getProfile(slug: string): ProfileData | undefined {

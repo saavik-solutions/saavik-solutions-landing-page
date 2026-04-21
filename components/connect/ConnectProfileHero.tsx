@@ -40,15 +40,16 @@ export function ConnectProfileHero({ profile }: ConnectProfileHeroProps) {
           src={profile.profileImage}
           alt={profile.name}
           fill
-          className="object-cover object-top"
+          className="object-cover object-center"
           priority
+          quality={100}
         />
         
         {/* Curved Bottom Gradient Overlay */}
         <div 
           className="absolute inset-0"
           style={{
-            background: "linear-gradient(to top, #1a1a1a 0%, #1a1a1a 15%, rgba(26,26,26,0.8) 30%, rgba(26,26,26,0.4) 50%, transparent 70%)"
+            background: "linear-gradient(to top, #1a1a1a 0%, #1a1a1a 15%, rgba(26,26,26,0.8) 30%, rgba(26,26,26,0.4) 50%, transparent 60%)"
           }}
         />
         
