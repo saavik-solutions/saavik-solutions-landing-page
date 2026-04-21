@@ -7,8 +7,6 @@ import { compileMDX, MDXRemote } from "next-mdx-remote/rsc";
 import BlogLayout from "@/components/blogs/BlogLayout";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import BlogContent from "@/components/blogs/blog-content";
-import RelatedPosts from "@/components/blogs/related-posts";
 
 export async function generateStaticParams() {
   const files = await fs.readdir(path.join(process.cwd(), "posts"));

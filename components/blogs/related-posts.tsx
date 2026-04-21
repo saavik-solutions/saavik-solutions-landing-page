@@ -8,7 +8,7 @@ export default function RelatedPosts({ posts }: { posts: any[] }) {
       <h2 className="mb-8 text-2xl font-bold text-black">Related Articles</h2>
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
-          <Link key={post.id} href={`/blogs/${post.slug}`} className="group block">
+          <Link key={post.slug} href={`/blogs/${post.slug}`} className="group block">
             <div className="overflow-hidden rounded-lg shadow-md transition-all duration-300 hover:shadow-lg">
               <div className="relative h-48 w-full overflow-hidden">
                 <Image

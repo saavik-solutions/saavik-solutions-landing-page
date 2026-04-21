@@ -75,7 +75,7 @@ export default function FeaturedBlogs({
         {/* Sidebar Posts */}
         <div className="space-y-4">
           {sidePosts.map((post) => (
-            <Link key={post.id} href={`/blogs/${post.slug}`} className="block">
+            <Link key={post.slug} href={`/blogs/${post.slug}`} className="block">
               <div className="grid grid-cols-3 gap-3">
                 <div className="relative h-20 w-full overflow-hidden rounded-md bg-gray-200">
                   <Image src={post.image || "/placeholder.svg"} alt={post.title} fill className="object-cover" />

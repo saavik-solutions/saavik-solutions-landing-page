@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { motion } from "framer-motion"
+import { motion, Variants } from "framer-motion"
 import { ArrowRight, Briefcase, Calendar, Globe, Mail, MapPin } from "lucide-react"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
@@ -17,7 +17,7 @@ export default function TeamPage() {
     setIsVisible(true)
   }, [])
 
-  const fadeIn = {
+  const fadeIn: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -26,7 +26,7 @@ export default function TeamPage() {
     }
   }
 
-  const staggerContainer = {
+  const staggerContainer: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
