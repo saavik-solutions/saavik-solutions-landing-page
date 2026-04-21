@@ -162,7 +162,7 @@ export default function Products() {
             Saavik Solutions drives technology, but creativity fuels innovation! DigiZinc, our creative powerhouse, specializes in branding, design, and digital storytelling that captivate and convert.
           </p>
           <p className="mx-auto mb-6 w-full text-xs text-purple-200 sm:mb-8 sm:w-[90%] sm:text-sm md:text-base lg:w-[80%]">
-            From stunning visuals to engaging campaigns, we craft experiences that leave a lasting impact. Whether it's logo design, UI/UX, ad creatives, or content production, DigiZinc transforms ideas into visually striking and strategically powerful assets.
+            From stunning visuals to engaging campaigns, we craft experiences that leave a lasting impact. Whether it&apos;s logo design, UI/UX, ad creatives, or content production, DigiZinc transforms ideas into visually striking and strategically powerful assets.
           </p>
         </motion.div>
 

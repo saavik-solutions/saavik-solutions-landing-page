@@ -4,9 +4,9 @@ import { getProfile, profiles } from "../profiles";
 import { ConnectPageContent } from "./ConnectPageContent";
 
 interface ConnectPageProps {
-  params: Promise<{
+  params: {
     slug: string;
-  }>;
+  };
 }
 
 // Generate static params for all known profiles
@@ -18,7 +18,7 @@ export async function generateStaticParams() {
 
 // Generate dynamic metadata based on the profile
 export async function generateMetadata({ params }: ConnectPageProps): Promise<Metadata> {
-  const { slug } = await params;
+  const { slug } = params;
   const profile = getProfile(slug);
 
   if (!profile) {
@@ -68,7 +68,7 @@ export async function generateMetadata({ params }: ConnectPageProps): Promise<Me
 }
 
 export default async function ConnectPage({ params }: ConnectPageProps) {
-  const { slug } = await params;
+  const { slug } = params;
   const profile = getProfile(slug);
 
   if (!profile) {

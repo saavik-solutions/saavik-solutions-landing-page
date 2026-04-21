@@ -99,7 +99,7 @@ export default function BlogSection() {
               </div>
               <div className="p-6">
                 <h3 className="mb-4 text-xl font-bold leading-tight">
-                  <Link href={`/blog/${post.slug}`} className="hover:text-[#E879F9] transition-colors duration-300">
+                  <Link href={`/blogs/${post.slug}`} className="hover:text-[#E879F9] transition-colors duration-300">
                     {post.title}
                   </Link>
                 </h3>

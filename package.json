@@ -67,8 +67,8 @@
   "devDependencies": {
     "@axe-core/react": "^4.11.0",
     "@types/node": "^22",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "postcss": "^8",
