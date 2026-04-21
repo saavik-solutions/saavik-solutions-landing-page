@@ -62,7 +62,7 @@ export default function FeaturedBlogs({
           <Link href={`/blogs/${mainPost.slug}`} className="block">
             <div className="relative h-[300px] w-full overflow-hidden rounded-md bg-gray-200 md:h-[400px]">
               <Image
-                src="/bms-300X400.png"
+                src="/bms-300x400.png"
                 alt={mainPost.title}
                 fill
                 className="object-cover"
