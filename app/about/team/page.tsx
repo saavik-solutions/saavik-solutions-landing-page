@@ -463,7 +463,7 @@ const teamMembers = {
                 Join the Saavik Team
               </motion.h2>
               <motion.p variants={fadeIn} className="text-gray-300 mb-6">
-                We're always looking for talented individuals who are passionate about technology and innovation. Join our diverse team and work on exciting projects that make a difference.
+                We&apos;re always looking for talented individuals who are passionate about technology and innovation. Join our diverse team and work on exciting projects that make a difference.
               </motion.p>
               <motion.div variants={staggerContainer} className="space-y-4 mb-8">
                 {[

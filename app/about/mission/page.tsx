@@ -396,7 +396,7 @@ export default function MissionPage() {
                 Making a <span className="text-[#6A43E7]">Difference</span>
               </h2>
               <p className="text-gray-300 mb-6">
-                Our commitment extends beyond business success. We're dedicated to creating positive change through technology and innovation.
+                Our commitment extends beyond business success. We&apos;re dedicated to creating positive change through technology and innovation.
               </p>
 
               <motion.div variants={staggerContainer} className="space-y-6 mb-8">
@@ -419,7 +419,7 @@ export default function MissionPage() {
                   <div>
                     <h3 className="text-xl font-semibold mb-2">Community Engagement</h3>
                     <p className="text-gray-400">
-                      Through mentorship programs and educational initiatives, we're helping build the next generation of technology leaders.
+                      Through mentorship programs and educational initiatives, we&apos;re helping build the next generation of technology leaders.
                     </p>
                   </div>
                 </motion.div>
@@ -469,7 +469,7 @@ export default function MissionPage() {
           >
             <h2 className="text-3xl font-bold mb-6">Join Us on Our Mission</h2>
             <p className="text-xl text-gray-300 mb-8">
-              Whether you're looking to transform your business or join our team, we invite you to be part of our journey.
+              Whether you&apos;re looking to transform your business or join our team, we invite you to be part of our journey.
             </p>
 
             <div className="flex flex-wrap gap-4 justify-center">

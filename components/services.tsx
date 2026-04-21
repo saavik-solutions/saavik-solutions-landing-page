@@ -91,7 +91,7 @@ export default function Services() {
               viewport={{ once: true }}
               className="mt-4 max-w-md text-sm text-gray-300 sm:text-base lg:text-lg"
             >
-              Whether you're modernizing or scaling, we build the digital core that powers your next chapter.
+              Whether you&apos;re modernizing or scaling, we build the digital core that powers your next chapter.
             </motion.p>
           </div>
 

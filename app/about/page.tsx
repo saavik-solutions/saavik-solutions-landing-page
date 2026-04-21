@@ -90,7 +90,7 @@ export default function AboutPage() {
                 Saavik Solutions is a premier IT services company, delivering cutting-edge technology solutions across the globe. With expertise in website and software development, staffing, CRM, ERP, and digital marketing, we help businesses scale and innovate.
               </p>
               <p className="text-gray-300 mb-6 leading-relaxed">
-                Founded on principles of innovation, integrity, and excellence, we've grown into a trusted technology partner for businesses of all sizes. Our team of experts combines technical prowess with business acumen to deliver solutions that drive real results.
+                Founded on principles of innovation, integrity, and excellence, we&apos;ve grown into a trusted technology partner for businesses of all sizes. Our team of experts combines technical prowess with business acumen to deliver solutions that drive real results.
               </p>
               <div className="flex gap-4 mt-8">
                 <Link href="/services">
@@ -250,7 +250,7 @@ export default function AboutPage() {
               Ready to Transform Your Business?
             </motion.h2>
             <motion.p variants={fadeIn} className="text-xl text-gray-300 mb-8">
-              Let's collaborate to bring your vision to life with our cutting-edge IT solutions.
+              Let&apos;s collaborate to bring your vision to life with our cutting-edge IT solutions.
             </motion.p>
             <motion.div variants={fadeIn}>
               <Link href="/contact-us">

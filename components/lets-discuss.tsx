@@ -15,11 +15,11 @@ export default function LetsDiscuss() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="mb-8 text-4xl font-bold text-black md:text-5xl lg:text-6xl">
-              Let's Discuss <br />
+              Let&apos;s Discuss <br />
               Your <span className="bg-gradient-to-r from-[#6A43E7] via-[#7F38E8] to-[#E879F9] bg-clip-text text-transparent">Project!</span>
             </h2>
             <p className="mb-10 max-w-md text-lg text-gray-700">
-              Share your project idea and we'll provide a free consultation on how we will turn it into an amazing
+              Share your project idea and we&apos;ll provide a free consultation on how we will turn it into an amazing
               digital product.
             </p>
             <Button className="w-full rounded-full bg-gradient-to-r from-[#6A43E7] via-[#7F38E8] to-[#E879F9] py-6 text-base font-medium text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl md:max-w-xs">

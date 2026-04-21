@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { X, Download, Share2, UserPlus, Smartphone } from "lucide-react";
@@ -18,13 +18,7 @@ export function QRCodeModal({ isOpen, onClose, profile }: QRCodeModalProps) {
   const [copied, setCopied] = useState(false);
   const [showInstallHelp, setShowInstallHelp] = useState(false);
 
-  useEffect(() => {
-    if (isOpen && canvasRef.current) {
-      generateQRCode();
-    }
-  }, [isOpen]);
-
-  const generateQRCode = async () => {
+  const generateQRCode = useCallback(async () => {
     if (!canvasRef.current) return;
 
     const targetUrl = profile.cardUrl || window.location.href;
@@ -44,7 +38,13 @@ export function QRCodeModal({ isOpen, onClose, profile }: QRCodeModalProps) {
       }
     };
     img.src = qrUrl;
-  };
+  }, [profile.cardUrl]);
+
+  useEffect(() => {
+    if (isOpen && canvasRef.current) {
+      generateQRCode();
+    }
+  }, [isOpen, generateQRCode]);
 
   const handleDownloadQR = () => {
     if (!canvasRef.current) return;

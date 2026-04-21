@@ -89,7 +89,7 @@ export default function Testimonials() {
             viewport={{ once: true }}
           >
             Empowered by Our
-            <br className="hidden xs:inline sm:hidden" /> Client's <span className="bg-gradient-to-r from-[#6A43E7] via-[#7F38E8] to-[#E879F9] bg-clip-text text-transparent">Stories</span>
+            <br className="hidden xs:inline sm:hidden" /> Client&apos;s <span className="bg-gradient-to-r from-[#6A43E7] via-[#7F38E8] to-[#E879F9] bg-clip-text text-transparent">Stories</span>
           </motion.h2>
           <motion.div
             initial={{ opacity: 0, x: 20 }}

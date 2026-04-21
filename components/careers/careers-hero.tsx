@@ -29,7 +29,7 @@ export default function CareersHero() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mb-8 text-lg leading-relaxed text-gray-300"
             >
-              At Saavik Solutions, we don't just build solutions—we create success. As a team of passionate innovators,
+              At Saavik Solutions, we don&apos;t just build solutions—we create success. As a team of passionate innovators,
               problem-solvers, and tech enthusiasts, we push the boundaries of cutting-edge IT support and software
               development to help businesses thrive.
             </motion.p>
