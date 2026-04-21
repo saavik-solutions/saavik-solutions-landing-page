@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Navbar from "./navbar";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import heroBgLg from '../public/home-hero-bg-lg.png'; // Import only the largest, Next.js will handle the rest
@@ -56,7 +56,7 @@ export default function Hero() {
   }, []);
 
   // Animation variants
-  const fadeIn = {
+  const fadeIn: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -65,7 +65,7 @@ export default function Hero() {
     }
   };
 
-  const slideIn = {
+  const slideIn: Variants = {
     hidden: { opacity: 0, x: -30 },
     visible: {
       opacity: 1,
