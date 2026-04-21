@@ -17,14 +17,14 @@ export default function InternshipSection() {
       <div className="container relative z-10 mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-3xl">
           <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-            Looking for <span className="text-red-500">Internships?</span>
+            Looking for <span className="text-purple-500">Internships?</span>
           </h2>
           <p className="mb-8 text-sm leading-relaxed text-gray-300 md:text-base">
             Gain hands-on experience, work on real projects, and learn from industry experts in IT, software
             development, and marketing. Kickstart your career with meaningful, real-world challenges, and growth
             opportunities at Saavik Solutions.
           </p>
-          <Button className="rounded-md bg-red-600 px-6 py-2 text-sm font-medium hover:bg-red-700">
+          <Button className="rounded-md bg-[#6A43E7] px-6 py-2 text-sm font-medium hover:bg-[#4f2cc3]">
             Apply Now for Internship
           </Button>
         </div>

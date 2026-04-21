@@ -20,11 +20,11 @@ const services = [
     bg: "bg-blue-100",
   },
   {
-    icon: <ShieldCheck className="h-6 w-6 text-red-600" />,
+    icon: <ShieldCheck className="h-6 w-6 text-purple-600" />,
     title: "Cybersecurity Services",
     description:
       "Protect digital assets with enterprise-grade security, real-time threat detection, and compliance frameworks.",
-    bg: "bg-red-100",
+    bg: "bg-purple-100",
   },
   {
     icon: <Settings2 className="h-6 w-6 text-gray-600" />,

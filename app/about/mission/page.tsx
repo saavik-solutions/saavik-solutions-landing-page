@@ -426,7 +426,7 @@ export default function MissionPage() {
               </motion.div>
 
               <Link href="/about/impact">
-                <button className="px-6 py-3 bg-[#6A43E7] hover:bg-[#e60000] transition-colors rounded-lg flex items-center">
+                <button className="px-6 py-3 bg-[#6A43E7] hover:bg-[#4f2cc3] transition-colors rounded-lg flex items-center">
                   Learn About Our Impact <ArrowRight className="ml-2 h-5 w-5" />
                 </button>
               </Link>

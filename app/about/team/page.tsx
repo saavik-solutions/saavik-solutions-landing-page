@@ -103,7 +103,7 @@ const teamMembers = {
     {
       name: "Srikar Kudurmalla",
       position: "Head of Engineering",
-      image: "/images/team/",
+      image: "/images/team/srikar.webp",
       bio: "Leads engineering teams and product architecture with a focus on scalability and high performance.",
       social: {
         linkedin: "https://linkedin.com/in/srikar",

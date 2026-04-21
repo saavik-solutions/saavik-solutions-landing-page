@@ -139,7 +139,7 @@ export default function HistoryPage() {
           >
             <Link
               href="/about"
-              className="inline-flex items-center text-gray-400 hover:text-red-400 mb-4"
+              className="inline-flex items-center text-gray-400 hover:text-purple-400 mb-4"
             >
               <ArrowRight className="h-4 w-4 rotate-180 mr-2" />
               Back to About

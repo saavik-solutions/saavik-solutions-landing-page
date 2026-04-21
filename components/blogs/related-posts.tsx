@@ -19,7 +19,7 @@ export default function RelatedPosts({ posts }: { posts: any[] }) {
                 />
               </div>
               <div className="p-4">
-                <h3 className="mb-2 text-lg font-bold text-gray-900 group-hover:text-red-600">{post.title}</h3>
+                <h3 className="mb-2 text-lg font-bold text-gray-900 group-hover:text-purple-600">{post.title}</h3>
                 <p className="mb-4 text-sm text-gray-600 line-clamp-2">{post.excerpt}</p>
                 <div className="flex items-center justify-between text-xs text-gray-500">
                   <span>{post.publishedAt}</span>

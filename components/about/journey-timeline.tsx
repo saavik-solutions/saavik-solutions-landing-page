@@ -38,13 +38,13 @@ export default function JourneyTimeline() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl font-bold text-black md:text-5xl">
-            Our <span className="bg-gradient-to-r from-red-600 to-red-600 bg-clip-text text-transparent">Journey</span>
+            Our <span className="bg-gradient-to-r from-purple-600 to-purple-600 bg-clip-text text-transparent">Journey</span>
           </h2>
         </motion.div>
 
         <div className="relative mx-auto max-w-4xl">
           {/* Timeline Line */}
-          <div className="absolute left-4 sm:left-[157px] top-0 h-full w-0.5 bg-gradient-to-b from-red-600 to-red-600"></div>
+          <div className="absolute left-4 sm:left-[157px] top-0 h-full w-0.5 bg-gradient-to-b from-purple-600 to-purple-600"></div>
 
           {/* Timeline Items */}
           <div className="space-y-12 md:space-y-20">
@@ -63,12 +63,12 @@ export default function JourneyTimeline() {
 
                 {/* Timeline Dot */}
                 <div className="absolute left-4 sm:left-[157px] top-0 z-20 hidden h-4 w-4 -translate-x-1/2 transform items-center justify-center sm:flex">
-                  <div className="h-3 w-3 rounded-full bg-red-600 ring-2 ring-red-100 sm:h-4 sm:w-4 sm:ring-4"></div>
+                  <div className="h-3 w-3 rounded-full bg-purple-600 ring-2 ring-purple-100 sm:h-4 sm:w-4 sm:ring-4"></div>
                 </div>
 
                 {/* Mobile Timeline Dot */}
                 <div className="absolute left-0 top-0 z-20 flex h-4 w-4 items-center justify-center sm:hidden">
-                  <div className="h-3 w-3 rounded-full bg-red-600 ring-2 ring-red-100"></div>
+                  <div className="h-3 w-3 rounded-full bg-purple-600 ring-2 ring-purple-100"></div>
                 </div>
 
                 {/* Content (Right Side) */}
