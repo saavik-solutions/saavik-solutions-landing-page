@@ -24,7 +24,7 @@ export default function GoogleMapComponent() {
 
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: "AIzaSyBZMS5xYbRRXbYVvRIYFEPxLAvzGjLpIQQ", // This is a placeholder key, it won't work
+    googleMapsApiKey: "AIzaSyBZMS5xYbRRXbYVvRIYFEPxLAvzGjLpIQQ", // This is a placeholder key, it won&apos;t work
   })
 
   const onLoad = useCallback(function callback(map: google.maps.Map) {

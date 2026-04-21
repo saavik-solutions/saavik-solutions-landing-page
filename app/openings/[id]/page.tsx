@@ -20,7 +20,7 @@ const getJobOpening = (id: string) => {
     description: `
       <p>Saavik Solutions is looking for a talented Full Stack Developer to join our growing team. As a Full Stack Developer, you will work on cutting-edge projects for our clients, building scalable, efficient, and user-friendly web applications.</p>
       
-      <p>You will collaborate closely with our design, product, and backend teams to deliver exceptional digital experiences that meet and exceed our clients' expectations.</p>
+      <p>You will collaborate closely with our design, product, and backend teams to deliver exceptional digital experiences that meet and exceed our clients&apos; expectations.</p>
     `,
     responsibilities: [
       "Design, develop, and maintain both frontend and backend components of our web applications",
