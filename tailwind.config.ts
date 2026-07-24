@@ -19,6 +19,9 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        satoshi: ['Satoshi', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -52,6 +55,12 @@ const config = {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        brand: {
+          primary: "#6C4CF5",
+          secondary: "#8E6BFF",
+          accent: "#4F46E5",
+          bg: "#FCFCFD",
         },
       },
       borderRadius: {

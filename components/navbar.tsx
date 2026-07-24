@@ -47,11 +47,11 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 py-6 w-full transition-all duration-300 backdrop-blur-sm bg-black/50
-        ${scrolled ? "backdrop-blur-md bg-black/80" : ""}`}>
+      className={`fixed top-0 left-0 right-0 z-50 py-4 w-full transition-all duration-300 bg-white
+        ${scrolled ? "shadow-md" : ""}`}>
       <div
-        className={`container mx-auto flex items-center justify-between rounded-full bg-white transition-all duration-300
-          ${scrolled ? "py-1 lg:py-1 px-8 lg:px-6" : "py-2 lg:py-2 px-8 lg:px-6"} shadow-xl border border-white/10`}>
+        className={`container mx-auto flex items-center justify-between transition-all duration-300
+          ${scrolled ? "py-1 lg:py-1 px-8 lg:px-6" : "py-2 lg:py-2 px-8 lg:px-6"}`}>
         {/* Logo */}
         <Link href="/" className="flex items-center group">
           <AnimatedDiv initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
