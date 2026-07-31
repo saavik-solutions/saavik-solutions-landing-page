@@ -86,7 +86,7 @@ export default function Products() {
 
   useEffect(() => {
     if (!api) return;
-    const autoplay = api.plugins().autoplay;
+    const autoplay = api.plugins().autoplay as any;
     if (!autoplay) return;
 
     if (flipped.some((f) => f)) {
@@ -281,7 +281,7 @@ export default function Products() {
         <div className="md:hidden block w-full mt-8">
           <Carousel
             setApi={setApi}
-            plugins={[autoplayRef.current]}
+            plugins={[autoplayRef.current as any]}
             opts={{
               align: "center",
               loop: true,
