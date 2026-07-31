@@ -60,7 +60,7 @@ export default function ContactForm() {
               onChange={handleChange}
               placeholder="John Doe"
               required
-              className="border-gray-300 bg-gray-50 px-4 py-3 focus:border-purple-500 focus:ring-purple-500"
+              className="border-gray-300 bg-gray-50 px-4 py-3 focus:border-blue-500 focus:ring-purple-500"
             />
           </div>
           <div className="space-y-3">
@@ -75,7 +75,7 @@ export default function ContactForm() {
               onChange={handleChange}
               placeholder="john@example.com"
               required
-              className="border-gray-300 bg-gray-50 px-4 py-3 focus:border-purple-500 focus:ring-purple-500"
+              className="border-gray-300 bg-gray-50 px-4 py-3 focus:border-blue-500 focus:ring-purple-500"
             />
           </div>
         </div>
@@ -91,7 +91,7 @@ export default function ContactForm() {
               value={formData.phone}
               onChange={handleChange}
               placeholder="+1 (555) 000-0000"
-              className="border-gray-300 bg-gray-50 px-4 py-3 focus:border-purple-500 focus:ring-purple-500"
+              className="border-gray-300 bg-gray-50 px-4 py-3 focus:border-blue-500 focus:ring-purple-500"
             />
           </div>
           <div className="space-y-3">
@@ -99,7 +99,7 @@ export default function ContactForm() {
               Subject <span className="text-purple-600">*</span>
             </label>
             <Select value={formData.subject} onValueChange={handleSubjectChange} required>
-              <SelectTrigger className="border-gray-300 bg-gray-50 px-4 py-3 focus:border-purple-500 focus:ring-purple-500">
+              <SelectTrigger className="border-gray-300 bg-gray-50 px-4 py-3 focus:border-blue-500 focus:ring-purple-500">
                 <SelectValue placeholder="Select a subject" />
               </SelectTrigger>
               <SelectContent>
@@ -124,14 +124,14 @@ export default function ContactForm() {
             onChange={handleChange}
             placeholder="Tell us about your project or inquiry..."
             required
-            className="min-h-[180px] border-gray-300 bg-gray-50 px-4 py-3 focus:border-purple-500 focus:ring-purple-500"
+            className="min-h-[180px] border-gray-300 bg-gray-50 px-4 py-3 focus:border-blue-500 focus:ring-purple-500"
           />
         </div>
 
         <div className="pt-4">
           <Button
             type="submit"
-            className="rounded-md bg-[#6A43E7] px-10 py-3 text-base font-medium transition-all duration-300 hover:bg-[#4f2cc3] hover:shadow-lg"
+            className="rounded-md bg-[#6A43E7] px-10 py-3 text-base font-medium transition-all duration-300 hover:bg-[#5a32d1] hover:shadow-lg"
           >
             SEND MESSAGE
           </Button>

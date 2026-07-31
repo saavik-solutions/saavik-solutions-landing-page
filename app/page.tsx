@@ -6,7 +6,6 @@ import EnterpriseSolutions from "@/components/enterprise-solutions"
 
 import Testimonials from "@/components/testimonials"
 import BlogSection from "@/components/blog-section"
-import LetsDiscuss from "@/components/lets-discuss"
 import Footer from "@/components/footer"
 import Products from "@/components/products"
 
@@ -23,7 +22,6 @@ export default function Home() {
       <Products />
       {/* <Testimonials /> */}
       <BlogSection />
-      <LetsDiscuss />
       <Footer />
     </main>
   )

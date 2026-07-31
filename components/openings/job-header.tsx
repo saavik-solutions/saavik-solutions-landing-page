@@ -68,7 +68,7 @@ export default function JobHeader({ job }: { job: any }) {
           {/* Quick Apply Button - For Mobile */}
           <div className="mt-8 md:hidden">
             <Button
-              className="w-full rounded-md bg-[#6A43E7] py-2 text-sm font-medium hover:bg-[#4f2cc3]"
+              className="w-full rounded-md bg-[#6A43E7] py-2 text-sm font-medium hover:bg-[#5a32d1]"
               onClick={() => {
                 const formElement = document.getElementById("application-form")
                 if (formElement) {

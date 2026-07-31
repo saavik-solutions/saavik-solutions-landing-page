@@ -59,22 +59,22 @@ export default function MissionPage() {
     {
       title: "Innovation",
       description: "We constantly push boundaries and embrace cutting-edge technologies to solve complex challenges.",
-      icon: <Lightbulb className="h-6 w-6 text-[#6A43E7]" />
+      icon: <Lightbulb className="h-6 w-6 text-[#0070F3]" />
     },
     {
       title: "Excellence",
       description: "We strive for excellence in everything we do, setting high standards and consistently delivering quality.",
-      icon: <Target className="h-6 w-6 text-[#6A43E7]" />
+      icon: <Target className="h-6 w-6 text-[#0070F3]" />
     },
     {
       title: "Collaboration",
       description: "We believe in the power of teamwork and partnership to achieve extraordinary results.",
-      icon: <Users className="h-6 w-6 text-[#6A43E7]" />
+      icon: <Users className="h-6 w-6 text-[#0070F3]" />
     },
     {
       title: "Integrity",
       description: "We conduct our business with honesty, transparency, and ethical responsibility.",
-      icon: <Globe className="h-6 w-6 text-[#6A43E7]" />
+      icon: <Globe className="h-6 w-6 text-[#0070F3]" />
     }
   ]
 
@@ -108,7 +108,7 @@ export default function MissionPage() {
       {/* Hero Section */}
       <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full">
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-[#6A43E7]/20 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-[#0070F3]/20 z-10" />
         
           <motion.div variants={fadeIn} className="relative h-96 rounded-xl overflow-hidden">
            
@@ -136,12 +136,12 @@ export default function MissionPage() {
               className="max-w-3xl mb-8 md:mb-0"
             >
               <div className="mb-4">
-                <Link href="/about" className="text-gray-400 hover:text-[#6A43E7] transition-colors flex items-center">
+                <Link href="/about" className="text-gray-400 hover:text-[#0070F3] transition-colors flex items-center">
                   <ArrowRight className="h-4 w-4 rotate-180 mr-2" /> Back to About
                 </Link>
               </div>
               <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                Our <span className="bg-gradient-to-r from-[#6A43E7] via-[#7F38E8] to-[#E879F9] bg-clip-text text-transparent">Mission</span> & <span className="bg-gradient-to-r from-[#6A43E7] via-[#7F38E8] to-[#E879F9] bg-clip-text text-transparent">Vision</span>
+                Our <span className="bg-gradient-to-r from-[#0070F3] to-[#00C2FF] bg-clip-text text-transparent">Mission</span> & <span className="bg-gradient-to-r from-[#0070F3] to-[#00C2FF] bg-clip-text text-transparent">Vision</span>
               </h1>
               <p className="text-xl text-gray-300 leading-relaxed">
                 Driving innovation and creating value through technology solutions that empower businesses and improve lives around the world.
@@ -154,18 +154,18 @@ export default function MissionPage() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="bg-black/60 backdrop-blur-md p-6 rounded-xl border border-white/10"
             >
-              <p className="text-lg font-semibold text-[#6A43E7]">Our Purpose</p>
+              <p className="text-lg font-semibold text-[#0070F3]">Our Purpose</p>
               <div className="mt-4 space-y-3">
                 <div className="flex items-center">
-                  <div className="h-2 w-2 rounded-full bg-[#6A43E7] mr-3" />
+                  <div className="h-2 w-2 rounded-full bg-[#0070F3] mr-3" />
                   <p>Transform Industries</p>
                 </div>
                 <div className="flex items-center">
-                  <div className="h-2 w-2 rounded-full bg-[#6A43E7] mr-3" />
+                  <div className="h-2 w-2 rounded-full bg-[#0070F3] mr-3" />
                   <p>Empower Businesses</p>
                 </div>
                 <div className="flex items-center">
-                  <div className="h-2 w-2 rounded-full bg-[#6A43E7] mr-3" />
+                  <div className="h-2 w-2 rounded-full bg-[#0070F3] mr-3" />
                   <p>Create Lasting Impact</p>
                 </div>
               </div>
@@ -191,7 +191,7 @@ export default function MissionPage() {
                   onClick={() => setActiveTab(tab)}
                   className={`px-6 py-3 rounded-full text-lg transition-all duration-300 ${
                     activeTab === tab
-                      ? 'bg-[#6A43E7] text-white'
+                      ? 'bg-[#0070F3] text-white'
                       : 'bg-gray-900 text-gray-300 hover:bg-gray-800'
                   }`}
                 >
@@ -222,7 +222,7 @@ export default function MissionPage() {
                 </motion.div>
 
                 <motion.div variants={fadeIn} className="space-y-6">
-                  <h2 className="text-4xl font-bold text-white">Our <span className="text-[#6A43E7]">Mission</span></h2>
+                  <h2 className="text-4xl font-bold text-white">Our <span className="text-[#0070F3]">Mission</span></h2>
                   <p className="text-xl text-gray-300">
                     We exist to solve complex business challenges through innovative technology solutions that drive growth, efficiency, and competitive advantage for our clients.
                   </p>
@@ -230,7 +230,7 @@ export default function MissionPage() {
                   <div className="space-y-4 mt-8">
                     {[...Array(3)].map((_, i) => (
                       <motion.div variants={slideIn} key={i} className="flex items-start">
-                        <ChevronRight className="h-6 w-6 text-[#6A43E7] mt-1 mr-3 flex-shrink-0" />
+                        <ChevronRight className="h-6 w-6 text-[#0070F3] mt-1 mr-3 flex-shrink-0" />
                         <p className="text-gray-300">
                           {[
                             "Develop cutting-edge solutions that address real-world business problems",
@@ -254,7 +254,7 @@ export default function MissionPage() {
                 className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
               >
                 <motion.div variants={fadeIn} className="order-2 lg:order-1 space-y-6">
-                  <h2 className="text-4xl font-bold text-white">Our <span className="text-[#6A43E7]">Vision</span></h2>
+                  <h2 className="text-4xl font-bold text-white">Our <span className="text-[#0070F3]">Vision</span></h2>
                   <p className="text-xl text-gray-300">
                     To be the global leader in transformative technology solutions, recognized for our innovation, expertise, and the measurable impact we create for our clients and communities.
                   </p>
@@ -264,7 +264,7 @@ export default function MissionPage() {
                       <motion.div
                         variants={fadeIn}
                         key={i}
-                        className="bg-gradient-to-r from-gray-900 to-gray-800 p-6 rounded-xl border-l-4 border-[#6A43E7]"
+                        className="bg-gradient-to-r from-gray-900 to-gray-800 p-6 rounded-xl border-l-4 border-[#0070F3]"
                       >
                         <h3 className="text-xl font-semibold mb-2">{heading}</h3>
                         <p className="text-gray-300">
@@ -300,7 +300,7 @@ export default function MissionPage() {
                 className="space-y-12"
               >
                 <motion.div variants={fadeIn} className="text-center max-w-3xl mx-auto">
-                  <h2 className="text-4xl font-bold text-white mb-6">Our <span className="text-[#6A43E7]">Core Values</span></h2>
+                  <h2 className="text-4xl font-bold text-white mb-6">Our <span className="text-[#0070F3]">Core Values</span></h2>
                   <p className="text-xl text-gray-300">
                     These principles guide our actions, decisions, and interactions every day, shaping our culture and defining who we are as an organization.
                   </p>
@@ -311,10 +311,10 @@ export default function MissionPage() {
                     <motion.div
                       key={index}
                       variants={fadeIn}
-                      className="bg-gradient-to-br from-gray-900 to-black p-8 rounded-xl border border-gray-800 hover:border-[#6A43E7]/30 transition-all duration-300 group"
+                      className="bg-gradient-to-br from-gray-900 to-black p-8 rounded-xl border border-gray-800 hover:border-[#0070F3]/30 transition-all duration-300 group"
                     >
                       <div className="flex items-center mb-4">
-                        <div className="p-3 bg-[#6A43E7]/20 rounded-lg mr-4 group-hover:bg-[#6A43E7] transition-all duration-300">
+                        <div className="p-3 bg-[#0070F3]/20 rounded-lg mr-4 group-hover:bg-[#0070F3] transition-all duration-300">
                           {value.icon}
                         </div>
                         <h3 className="text-2xl font-bold">{value.title}</h3>
@@ -363,11 +363,11 @@ export default function MissionPage() {
                   variants={fadeIn}
                   className="relative"
                 >
-                  <div className="hidden md:block absolute left-1/2 top-0 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-[#6A43E7] z-10"></div>
+                  <div className="hidden md:block absolute left-1/2 top-0 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-[#0070F3] z-10"></div>
 
-                  <div className="md:pt-8 bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-[#6A43E7]/30 transition-all duration-300">
+                  <div className="md:pt-8 bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-[#0070F3]/30 transition-all duration-300">
                     <div className="mb-4">
-                      <span className="text-[#6A43E7] font-bold text-3xl">
+                      <span className="text-[#0070F3] font-bold text-3xl">
                         {milestone.year}
                       </span>
                     </div>
@@ -393,7 +393,7 @@ export default function MissionPage() {
               className="max-w-lg"
             >
               <h2 className="text-3xl font-bold mb-6">
-                Making a <span className="text-[#6A43E7]">Difference</span>
+                Making a <span className="text-[#0070F3]">Difference</span>
               </h2>
               <p className="text-gray-300 mb-6">
                 Our commitment extends beyond business success. We&apos;re dedicated to creating positive change through technology and innovation.
@@ -401,8 +401,8 @@ export default function MissionPage() {
 
               <motion.div variants={staggerContainer} className="space-y-6 mb-8">
                 <motion.div variants={fadeIn} className="flex items-start">
-                  <div className="p-2 bg-[#6A43E7]/20 rounded-full mr-4 flex-shrink-0">
-                    <Clock className="h-5 w-5 text-[#6A43E7]" />
+                  <div className="p-2 bg-[#0070F3]/20 rounded-full mr-4 flex-shrink-0">
+                    <Clock className="h-5 w-5 text-[#0070F3]" />
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold mb-2">Sustainable Solutions</h3>
@@ -413,8 +413,8 @@ export default function MissionPage() {
                 </motion.div>
 
                 <motion.div variants={fadeIn} className="flex items-start">
-                  <div className="p-2 bg-[#6A43E7]/20 rounded-full mr-4 flex-shrink-0">
-                    <Users className="h-5 w-5 text-[#6A43E7]" />
+                  <div className="p-2 bg-[#0070F3]/20 rounded-full mr-4 flex-shrink-0">
+                    <Users className="h-5 w-5 text-[#0070F3]" />
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold mb-2">Community Engagement</h3>
@@ -426,7 +426,7 @@ export default function MissionPage() {
               </motion.div>
 
               <Link href="/about/impact">
-                <button className="px-6 py-3 bg-[#6A43E7] hover:bg-[#4f2cc3] transition-colors rounded-lg flex items-center">
+                <button className="px-6 py-3 bg-[#0070F3] hover:bg-[#005BB5] transition-colors rounded-lg flex items-center">
                   Learn About Our Impact <ArrowRight className="ml-2 h-5 w-5" />
                 </button>
               </Link>
@@ -458,7 +458,7 @@ export default function MissionPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 bg-[#6A43E7]/20">
+      <section className="py-16 bg-[#0070F3]/20">
         <div className="container mx-auto px-6">
           <motion.div
             initial="hidden"
@@ -474,7 +474,7 @@ export default function MissionPage() {
 
             <div className="flex flex-wrap gap-4 justify-center">
               <Link href="/contact">
-                <button className="px-8 py-3 bg-[#6A43E7] hover:bg-[#e60000] transition-colors rounded-lg">
+                <button className="px-8 py-3 bg-[#0070F3] hover:bg-[#e60000] transition-colors rounded-lg">
                   Contact Us
                 </button>
               </Link>  

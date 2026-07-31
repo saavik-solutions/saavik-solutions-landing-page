@@ -116,7 +116,7 @@ useEffect(() => {
             variants={fadeIn}
           >
             <h1 className="text-4xl md:text-6xl font-bold">
-              Saavik Solutions <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6A43E7] via-[#7F38E8] to-[#E879F9] sm:inline">Blogs</span>
+              Saavik Solutions <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0070F3] to-[#00C2FF] sm:inline">Blogs</span>
             </h1>
             <p className="text-muted-foreground text-lg">
               Stay updated with the latest insights on AI technology, digital marketing trends, and industry best
@@ -128,7 +128,7 @@ useEffect(() => {
         type="text"
         placeholder="Search Articles"
         value={searchQuery}
-        className="pl-10 pr-4 py-2 bg-background border border-[#D1D5DB] rounded-md focus:border-[#6A43E7] focus:ring-0 focus:outline-none transition-colors duration-300"
+        className="pl-10 pr-4 py-2 bg-background border border-[#D1D5DB] rounded-md focus:border-[#0070F3] focus:ring-0 focus:outline-none transition-colors duration-300"
         onChange={(e) => setSearchQuery(e.target.value)}
       />
     </div>
@@ -144,7 +144,7 @@ useEffect(() => {
 {/* Desktop Sidebar */}
 <aside className="hidden lg:block lg:w-[260px]">
   <div className="overflow-hidden rounded-xl shadow-md">
-    <div className="bg-gradient-to-r from-[#6A43E7] to-[#7F38E8] p-4 rounded-t-xl">
+    <div className="bg-gradient-to-r from-[#0070F3] to-[#0096F9] p-4 rounded-t-xl">
       <h3 className="text-lg font-bold text-white">Categories</h3>
     </div>
     <div className="h-[500px] overflow-y-auto bg-gray-900 category-scrollbar rounded-b-xl">
@@ -177,7 +177,7 @@ useEffect(() => {
   <div className="overflow-hidden rounded-xl shadow-md">
     <button
       onClick={() => setIsDropdownOpen((prev: boolean) => !prev)}
-      className="flex w-full items-center justify-between bg-gradient-to-r from-[#6A43E7] to-[#7F38E8] p-4 text-white rounded-t-xl"
+      className="flex w-full items-center justify-between bg-gradient-to-r from-[#0070F3] to-[#0096F9] p-4 text-white rounded-t-xl"
     >
       <h3 className="text-lg font-bold">{activeCategory || "Select Category"}</h3>
       <motion.svg

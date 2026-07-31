@@ -91,12 +91,12 @@ export default function EnterpriseSolutions() {
             className="mb-6 text-4xl font-extrabold tracking-tight text-gray-900 md:text-5xl lg:text-6xl"
           >
             Our Unique, Trendy &{" "}
-            <span className="bg-gradient-to-r from-[#6A43E7] via-[#7F38E8] to-[#E879F9] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#6A43E7] to-[#E879F9] bg-clip-text text-transparent">
               Profitable
             </span>{" "}
             Enterprise
             <br className="hidden md:block" />
-            <span className="bg-gradient-to-r from-[#6A43E7] via-[#7F38E8] to-[#E879F9] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#6A43E7] to-[#E879F9] bg-clip-text text-transparent">
               Solutions
             </span>
           </motion.h2>
@@ -170,7 +170,7 @@ export default function EnterpriseSolutions() {
               <Button
                 onClick={handlePrev}
                 size="icon"
-                className="h-12 w-12 rounded-full bg-gradient-to-r from-[#6A43E7] via-[#7F38E8] to-[#E879F9] hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                className="h-12 w-12 rounded-full bg-gradient-to-r from-[#6A43E7] to-[#E879F9] hover:shadow-2xl transition-all duration-300 hover:scale-105"
                 disabled={currentIndex === 0}
               >
                 <ChevronLeft className="h-6 w-6 text-white" />
@@ -184,7 +184,7 @@ export default function EnterpriseSolutions() {
               <Button
                 onClick={handleNext}
                 size="icon"
-                className="h-12 w-12 rounded-full bg-gradient-to-r from-[#6A43E7] via-[#7F38E8] to-[#E879F9] hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                className="h-12 w-12 rounded-full bg-gradient-to-r from-[#6A43E7] to-[#E879F9] hover:shadow-2xl transition-all duration-300 hover:scale-105"
                 disabled={currentIndex === maxIndex}
               >
                 <ChevronRight className="h-6 w-6 text-white" />

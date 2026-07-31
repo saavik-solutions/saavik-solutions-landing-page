@@ -54,7 +54,7 @@ export default function BlogSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-4xl font-bold md:text-5xl lg:text-6xl"
             >
-              Latest <span className="bg-gradient-to-r from-[#6A43E7] via-[#7F38E8] to-[#E879F9] bg-clip-text text-transparent">Insights</span> & News
+              Latest <span className="bg-gradient-to-r from-[#6A43E7] to-[#E879F9] bg-clip-text text-transparent">Insights</span> & News
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 10 }}
@@ -71,44 +71,55 @@ export default function BlogSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <Button className="mt-4 self-start rounded-full bg-gradient-to-r from-[#6A43E7] via-[#7F38E8] to-[#E879F9] px-8 py-3 text-sm font-medium uppercase text-white transition-all duration-300 hover:scale-105 hover:shadow-xl">
+            <Button className="mt-4 self-start rounded-full bg-gradient-to-r from-[#6A43E7] to-[#E879F9] px-8 py-3 text-sm font-medium uppercase text-white transition-all duration-300 hover:scale-105 hover:shadow-xl">
               VIEW ALL POSTS
             </Button>
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 items-start">
           {blogPosts.map((post, index) => (
             <motion.article
               key={post.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group overflow-hidden rounded-3xl bg-gray-900/50 backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:bg-gray-900/70"
+              className="group relative overflow-hidden rounded-xl bg-gray-900/50 transition-all duration-300 hover:shadow-2xl hover:shadow-[#6A43E7]/20 p-[2px]"
             >
-              <div className="relative h-64 w-full overflow-hidden">
+              {/* Spinning Gradient Background for Animated Border */}
+              <div 
+                className="absolute inset-[-100%] animate-[spin_8s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,transparent_75%,#6A43E7_85%,#E879F9_100%)] z-0" 
+                style={{ animationDelay: `-${index * 2.6}s` }}
+              />
+              
+              {/* Inner Content Container */}
+              <div className="relative z-10 h-full w-full rounded-[10px] bg-gray-950 overflow-hidden flex flex-col transition-colors duration-300 group-hover:bg-gray-900">
+                <div className="relative h-48 md:h-64 w-full overflow-hidden shrink-0">
                 <Image
                   src={post.image}
                   alt={post.title}
                   fill={true}
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="object-cover transition-transform duration-500 md:group-hover:scale-110"
                 />
-                <div className="absolute left-4 top-4 rounded-full bg-gradient-to-r from-[#6A43E7] via-[#7F38E8] to-[#E879F9] px-4 py-1 text-xs font-semibold uppercase text-white shadow-lg">
+                <div className="absolute left-4 top-4 rounded-full bg-gradient-to-r from-[#6A43E7] to-[#E879F9] px-4 py-1 text-xs font-semibold uppercase text-white shadow-lg">
                   {post.category}
                 </div>
               </div>
-              <div className="p-6">
-                <h3 className="mb-4 text-xl font-bold leading-tight">
+              <div className="p-4 md:p-6">
+                <h3 className="text-lg md:text-xl font-bold leading-tight mb-4 md:mb-0 md:group-hover:mb-4 transition-all duration-300">
                   <Link href={`/blogs/${post.slug}`} className="hover:text-[#E879F9] transition-colors duration-300">
                     {post.title}
                   </Link>
                 </h3>
-                <p className="mb-4 text-sm text-gray-400">
-                  {post.excerpt}
-                </p>
-                <div className="flex items-center text-sm text-gray-400">
-                  <CalendarIcon className="mr-2 h-4 w-4" />
-                  <span>{post.date}</span>
+                <div className="max-h-[200px] opacity-100 md:max-h-0 md:opacity-0 overflow-hidden transition-all duration-500 ease-in-out md:group-hover:max-h-[200px] md:group-hover:opacity-100">
+                  <p className="mb-4 text-xs md:text-sm text-gray-400">
+                    {post.excerpt}
+                  </p>
+                  <div className="flex items-center text-xs md:text-sm text-gray-400">
+                    <CalendarIcon className="mr-2 h-4 w-4" />
+                    <span>{post.date}</span>
+                  </div>
+                </div>
                 </div>
               </div>
             </motion.article>

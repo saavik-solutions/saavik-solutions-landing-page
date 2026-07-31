@@ -48,24 +48,24 @@ export default function AboutPage() {
             className="max-w-4xl"
           >
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-              About <span className="bg-gradient-to-r from-[#6A43E7] via-[#7F38E8] to-[#E879F9] bg-clip-text text-transparent">Saavik</span>
+              About <span className="bg-gradient-to-r from-[#0070F3] to-[#00C2FF] bg-clip-text text-transparent">Saavik</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
               A premier IT services company, delivering cutting-edge technology solutions across the globe.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/about/team">
-                <button className="px-6 py-3 border border-white/20 hover:bg-[#6A43E7] transition-colors rounded-lg flex items-center group">
+                <button className="px-6 py-3 border border-white/20 hover:bg-[#0070F3] transition-colors rounded-lg flex items-center group">
                   Meet Our Team <Users className="ml-2 h-5 w-5 group-hover:text-white" />
                 </button>
               </Link>
               {/* <Link href="/about/history">
-                <button className="px-6 py-3 border border-white/20 hover:bg-[#6A43E7] transition-colors rounded-lg flex items-center group">
+                <button className="px-6 py-3 border border-white/20 hover:bg-[#0070F3] transition-colors rounded-lg flex items-center group">
                   Our History <Layers className="ml-2 h-5 w-5" />
                 </button>
               </Link> */}
               <Link href="/about/mission">
-                <button className="px-6 py-3 border border-white/20 hover:bg-[#6A43E7] transition-colors rounded-lg flex items-center group">
+                <button className="px-6 py-3 border border-white/20 hover:bg-[#0070F3] transition-colors rounded-lg flex items-center group">
                   Mission & Vision <Award className="ml-2 h-5 w-5" />
                 </button>
               </Link>
@@ -94,7 +94,7 @@ export default function AboutPage() {
               </p>
               <div className="flex gap-4 mt-8">
                 <Link href="/services">
-                  <button className="px-6 py-3 bg-[#6A43E7] hover:bg-[#6A43E7bb] transition-colors rounded-lg flex items-center">
+                  <button className="px-6 py-3 bg-[#0070F3] hover:bg-[#0070F3bb] transition-colors rounded-lg flex items-center">
                     Our Services <ArrowRight className="ml-2 h-5 w-5" />
                   </button>
                 </Link>
@@ -145,32 +145,32 @@ export default function AboutPage() {
           >
             {[
               {
-                icon: <Globe className="h-12 w-12 text-[#6A43E7]" />,
+                icon: <Globe className="h-12 w-12 text-[#0070F3]" />,
                 title: "Web Development",
                 description: "Creating stunning, responsive websites that captivate users and drive business growth."
               },
               {
-                icon: <Layers className="h-12 w-12 text-[#6A43E7]" />,
+                icon: <Layers className="h-12 w-12 text-[#0070F3]" />,
                 title: "Software Solutions",
                 description: "Custom software development tailored to address your unique business challenges."
               },
               {
-                icon: <Users className="h-12 w-12 text-[#6A43E7]" />,
+                icon: <Users className="h-12 w-12 text-[#0070F3]" />,
                 title: "IT Staffing",
                 description: "Finding the perfect tech talent to strengthen your team and accelerate your projects."
               },
               {
-                icon: <Zap className="h-12 w-12 text-[#6A43E7]" />,
+                icon: <Zap className="h-12 w-12 text-[#0070F3]" />,
                 title: "Digital Marketing",
                 description: "Data-driven marketing strategies to boost your online presence and acquire new customers."
               },
               {
-                icon: <Award className="h-12 w-12 text-[#6A43E7]" />,
+                icon: <Award className="h-12 w-12 text-[#0070F3]" />,
                 title: "CRM & ERP Solutions",
                 description: "Streamlining operations and enhancing customer relationships with integrated systems."
               },
               {
-                icon: <Globe className="h-12 w-12 text-[#6A43E7]" />,
+                icon: <Globe className="h-12 w-12 text-[#0070F3]" />,
                 title: "Global Reach",
                 description: "Delivering exceptional services to clients across different continents and industries."
               }
@@ -178,7 +178,7 @@ export default function AboutPage() {
               <motion.div 
                 key={index} 
                 variants={fadeIn}
-                className="bg-gradient-to-br from-gray-900 to-black p-8 rounded-xl border border-gray-800 hover:border-[#6A43E7]/30 transition-all duration-300 group"
+                className="bg-gradient-to-br from-gray-900 to-black p-8 rounded-xl border border-gray-800 hover:border-[#0070F3]/30 transition-all duration-300 group"
               >
                 <div className="p-4 bg-gradient-to-br from-purple-900/20 to-transparent rounded-lg inline-block mb-6 group-hover:from-purple-900/40 transition-all duration-300">
                   {item.icon}
@@ -254,7 +254,7 @@ export default function AboutPage() {
             </motion.p>
             <motion.div variants={fadeIn}>
               <Link href="/contact-us">
-                <button className="px-8 py-4 bg-[#6A43E7] hover:bg-[#6A43E7bb] transition-colors text-lg font-medium rounded-lg">
+                <button className="px-8 py-4 bg-[#0070F3] hover:bg-[#0070F3bb] transition-colors text-lg font-medium rounded-lg">
                   Get a Free Consultation
                 </button>
               </Link>

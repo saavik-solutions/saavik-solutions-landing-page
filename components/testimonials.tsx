@@ -89,7 +89,7 @@ export default function Testimonials() {
             viewport={{ once: true }}
           >
             Empowered by Our
-            <br className="hidden xs:inline sm:hidden" /> Client&apos;s <span className="bg-gradient-to-r from-[#6A43E7] via-[#7F38E8] to-[#E879F9] bg-clip-text text-transparent">Stories</span>
+            <br className="hidden xs:inline sm:hidden" /> Client&apos;s <span className="bg-gradient-to-r from-[#6A43E7] to-[#E879F9] bg-clip-text text-transparent">Stories</span>
           </motion.h2>
           <motion.div
             initial={{ opacity: 0, x: 20 }}
@@ -98,7 +98,7 @@ export default function Testimonials() {
             viewport={{ once: true }}
             className="flex justify-center md:justify-end"
           >
-            <Button className="rounded-full bg-gradient-to-r from-[#6A43E7] via-[#7F38E8] to-[#E879F9] px-6 py-2.5 text-sm font-medium uppercase text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl sm:px-8 sm:py-3">
+            <Button className="rounded-full bg-gradient-to-r from-[#6A43E7] to-[#E879F9] px-6 py-2.5 text-sm font-medium uppercase text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl sm:px-8 sm:py-3">
               VIEW ALL REVIEWS
             </Button>
           </motion.div>
@@ -120,14 +120,14 @@ export default function Testimonials() {
           {/* Desktop Navigation */}
           <button
             onClick={handlePrev}
-            className="absolute left-0 top-1/2 z-10 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-gradient-to-r from-[#6A43E7] via-[#7F38E8] to-[#E879F9] text-white shadow-lg transition-all hover:scale-110 hover:shadow-xl focus:outline-none md:flex md:h-12 md:w-12 md:-left-6 lg:-left-10"
+            className="absolute left-0 top-1/2 z-10 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-gradient-to-r from-[#6A43E7] to-[#E879F9] text-white shadow-lg transition-all hover:scale-110 hover:shadow-xl focus:outline-none md:flex md:h-12 md:w-12 md:-left-6 lg:-left-10"
             aria-label="Previous testimonial"
           >
             <ChevronLeft className="h-5 w-5 md:h-6 md:w-6" />
           </button>
           <button
             onClick={handleNext}
-            className="absolute right-0 top-1/2 z-10 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-gradient-to-r from-[#6A43E7] via-[#7F38E8] to-[#E879F9] text-white shadow-lg transition-all hover:scale-110 hover:shadow-xl focus:outline-none md:flex md:h-12 md:w-12 md:-right-6 lg:-right-10"
+            className="absolute right-0 top-1/2 z-10 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-gradient-to-r from-[#6A43E7] to-[#E879F9] text-white shadow-lg transition-all hover:scale-110 hover:shadow-xl focus:outline-none md:flex md:h-12 md:w-12 md:-right-6 lg:-right-10"
             aria-label="Next testimonial"
           >
             <ChevronRight className="h-5 w-5 md:h-6 md:w-6" />
@@ -176,7 +176,7 @@ export default function Testimonials() {
                         </div>
                       </div>
 
-                      <div className="flex flex-1 flex-col justify-center bg-gradient-to-br from-[#6A43E7]/10 via-[#7F38E8]/10 to-[#E879F9]/10 p-6 sm:p-8">
+                      <div className="flex flex-1 flex-col justify-center bg-gradient-to-br from-[#6A43E7]/10 to-[#E879F9]/10 p-6 sm:p-8">
                         <div className="mb-4 hidden items-center sm:flex">
                           <span className="mr-2 text-xl font-bold text-black sm:text-2xl">{testimonial.rating}</span>
                           <div className="flex text-yellow-400">
@@ -208,14 +208,14 @@ export default function Testimonials() {
         <div className="mt-6 flex justify-center space-x-4 md:hidden">
           <button
             onClick={handlePrev}
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-[#6A43E7] via-[#7F38E8] to-[#E879F9] text-white shadow-md transition-all hover:scale-105"
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-[#6A43E7] to-[#E879F9] text-white shadow-md transition-all hover:scale-105"
             aria-label="Previous testimonial"
           >
             <ChevronLeft className="h-5 w-5" />
           </button>
           <button
             onClick={handleNext}
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-[#6A43E7] via-[#7F38E8] to-[#E879F9] text-white shadow-md transition-all hover:scale-105"
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-[#6A43E7] to-[#E879F9] text-white shadow-md transition-all hover:scale-105"
             aria-label="Next testimonial"
           >
             <ChevronRight className="h-5 w-5" />

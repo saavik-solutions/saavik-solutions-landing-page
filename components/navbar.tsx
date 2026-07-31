@@ -8,6 +8,7 @@ import { Menu, X, Linkedin, Twitter, Facebook, Instagram, ChevronDown } from "lu
 import { Sheet, SheetTrigger } from "@/components/ui/sheet"
 import { AnimatedDiv } from "@/components/ui/animated-div"
 import { AnimatedMobileSidebar } from "./ui/animated-mobile-sidebar"
+import { StaggeredMenu } from "./ui/staggered-menu"
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
@@ -80,7 +81,7 @@ export default function Navbar() {
         <nav className="hidden lg:flex items-center space-x-6">
           {navLinks.map((link, idx) => (
             <AnimatedDiv key={link.href} initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: idx * 0.05 }}>
-              <Link href={link.href} className="relative text-sm font-medium uppercase text-indigo-600 hover:text-purple-600 transition-colors duration-200 group">
+              <Link href={link.href} className="relative text-sm font-medium uppercase text-blue-600 hover:text-purple-600 transition-colors duration-200 group">
                 {link.text}
                 {link.hasDropdown && <ChevronDown className="inline ml-1 h-4 w-4 group-hover:rotate-180 transition-transform duration-200" />}
                 <div className="absolute -bottom-1 left-0 h-[2px] w-0 bg-gradient-to-r from-indigo-600 to-purple-500 group-hover:w-full transition-[width] duration-300"></div>
@@ -115,58 +116,57 @@ export default function Navbar() {
               </Button>
             </Link>
           </AnimatedDiv>
-          <Sheet open={open} onOpenChange={setOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="relative text-black">
-                {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-                <span className="sr-only">Toggle menu</span>
-              </Button>
-            </SheetTrigger>
-            <AnimatedMobileSidebar isOpen={open} onClose={() => setOpen(false)}>
-              <div className="mt-4 flex justify-center bg-white rounded-md px-4 py-2">
-                <Image src="/saavik-logo-lgn.svg" alt="Logo" width={100} height={32} />
-              </div>
-              <nav className="mt-8 flex flex-col space-y-2 px-4">
-                {navLinks.map((link) =>
-                  (!isLandscapeMobile || !link.hideOnLandscapeMobile) && (
-                    <div key={link.href}>
-                      <Link href={link.href} onClick={() => !link.hasDropdown && setOpen(false)}
-                        className={`flex justify-between items-center p-2 rounded-lg uppercase text-sm font-medium transition-colors duration-200
-                          ${activeLink === link.href ? "bg-purple-100 text-purple-700" : "hover:bg-white/10 text-white"}`}>
-                        <span>{link.text}</span>
-                        {link.hasDropdown && <ChevronDown className="h-4 w-4" />}
-                      </Link>
-                      {link.hasDropdown && (
-                        <div className="pl-4 mt-1 border-l-2 border-purple-500 ml-2 space-y-1">
-                          {link.dropdownItems.map(item => (
-                            <Link key={item.href} href={item.href} onClick={() => setOpen(false)}
-                              className="block px-3 py-1 text-sm text-gray-200 hover:text-white transition-colors duration-200">
-                              {item.text}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                <Link href="/contact-us" onClick={() => setOpen(false)}>
+          <StaggeredMenu
+            isFixed={true}
+            menuButtonColor="#000"
+            openMenuButtonColor="#fff"
+            colors={["#050505", "#10061e"]}
+          >
+            <div className="mt-4 flex justify-center bg-white rounded-md px-4 py-2 stagger-item">
+              <Image src="/saavik-logo-lgn.svg" alt="Logo" width={100} height={32} />
+            </div>
+            <nav className="mt-8 flex flex-col space-y-2 px-4">
+              {navLinks.map((link) =>
+                (!isLandscapeMobile || !link.hideOnLandscapeMobile) && (
+                  <div key={link.href} className="stagger-item">
+                    <Link href={link.href} onClick={() => { if (!link.hasDropdown) (window as any).closeStaggeredMenu?.() }}
+                      className={`flex justify-between items-center p-2 rounded-lg uppercase text-sm font-medium transition-colors duration-200
+                        ${activeLink === link.href ? "bg-purple-100 text-purple-700" : "hover:bg-white/10 text-white"}`}>
+                      <span>{link.text}</span>
+                      {link.hasDropdown && <ChevronDown className="h-4 w-4" />}
+                    </Link>
+                    {link.hasDropdown && (
+                      <div className="pl-4 mt-1 border-l-2 border-blue-500 ml-2 space-y-1">
+                        {link.dropdownItems.map(item => (
+                          <Link key={item.href} href={item.href} onClick={() => (window as any).closeStaggeredMenu?.()}
+                            className="block px-3 py-1 text-sm text-gray-200 hover:text-white transition-colors duration-200">
+                            {item.text}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              <div className="stagger-item">
+                <Link href="/contact-us" onClick={() => (window as any).closeStaggeredMenu?.()}>
                   <Button className="mt-4 w-full uppercase text-sm font-semibold bg-gradient-to-r from-indigo-600 to-purple-500 text-white rounded-full py-2">
                     Get a Quote
                   </Button>
                 </Link>
-              </nav>
-              <div className="mt-auto border-t border-white/10 pt-6 pb-4">
-                <p className="text-center text-xs text-gray-400 mb-3">Connect with us</p>
-                <div className="flex justify-center space-x-4">
-                  {[Linkedin, Twitter, Facebook, Instagram].map((Icon, i) => (
-                    <a key={i} href="#" className="p-2 rounded-full bg-white/10 text-white hover:bg-purple-700 transition-colors duration-200">
-                      <Icon className="w-5 h-5" />
-                    </a>
-                  ))}
-                </div>
-                <p className="mt-6 text-center text-[10px] text-gray-500">© 2025 Your Company</p>
               </div>
-            </AnimatedMobileSidebar>
-          </Sheet>
+            </nav>
+            <div className="mt-auto border-t border-white/10 pt-6 pb-4 stagger-item">
+              <p className="text-center text-xs text-gray-400 mb-3">Connect with us</p>
+              <div className="flex justify-center space-x-4">
+                {[Linkedin, Twitter, Facebook, Instagram].map((Icon, i) => (
+                  <a key={i} href="#" className="p-2 rounded-full bg-white/10 text-white hover:bg-purple-700 transition-colors duration-200">
+                    <Icon className="w-5 h-5" />
+                  </a>
+                ))}
+              </div>
+              <p className="mt-6 text-center text-[10px] text-gray-500">© 2025 Your Company</p>
+            </div>
+          </StaggeredMenu>
         </div>
       </div>
     </header>

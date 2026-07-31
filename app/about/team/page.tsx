@@ -242,7 +242,7 @@ const teamMembers = {
                 </Link>
               </div>
               <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                Our <span className="bg-gradient-to-r from-[#6A43E7] via-[#7F38E8] to-[#E879F9] bg-clip-text text-transparent">Team</span>
+                Our <span className="bg-gradient-to-r from-[#0070F3] to-[#00C2FF] bg-clip-text text-transparent">Team</span>
               </h1>
               <p className="text-xl text-gray-300 leading-relaxed">
                 Meet the talented professionals behind Saavik Solutions. Our diverse team combines deep technical expertise with creative problem-solving to deliver exceptional results.
@@ -293,7 +293,7 @@ const teamMembers = {
             onClick={() => setActiveTab(tab)}
             className={`px-5 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base transition-all duration-300 font-medium ${
               activeTab === tab
-                ? 'bg-[#6A43E7] text-white shadow-lg'
+                ? 'bg-[#0070F3] text-white shadow-lg'
                 : 'bg-gray-900 text-gray-300 hover:bg-gray-800'
             }`}
           >
@@ -320,7 +320,7 @@ const teamMembers = {
         <motion.div
           key={index}
           variants={fadeIn}
-          className="bg-gradient-to-br from-gray-900 to-black rounded-xl overflow-hidden border border-gray-800 hover:border-[#6A43E7]/30 transition-all duration-300 group"
+          className="bg-gradient-to-br from-gray-900 to-black rounded-xl overflow-hidden border border-gray-800 hover:border-[#0070F3]/30 transition-all duration-300 group"
         >
           {/* Image Section */}
           <div className="relative h-72 sm:h-80">
@@ -340,7 +340,7 @@ const teamMembers = {
             <h3 className="text-xl sm:text-2xl font-bold mb-1 group-hover:text-purple-400 transition-colors">
               {member.name}
             </h3>
-            <p className="text-[#6A43E7] text-sm sm:text-base mb-3">{member.position}</p>
+            <p className="text-[#0070F3] text-sm sm:text-base mb-3">{member.position}</p>
             <p className="text-gray-400 text-sm sm:text-base mb-4">{member.bio}</p>
 
             {/* Social Icons */}
@@ -365,7 +365,7 @@ const teamMembers = {
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 bg-gray-800 hover:bg-[#6A43E7] rounded-full transition-colors"
+                    className="p-2 bg-gray-800 hover:bg-[#0070F3] rounded-full transition-colors"
                     aria-label={`${platform} profile`}
                   >
                     {icon}
@@ -416,7 +416,7 @@ const teamMembers = {
                 variants={fadeIn}
                 className="bg-gray-900 p-6 rounded-xl border border-gray-800"
               >
-                <div className="flex items-center text-[#6A43E7] mb-3">
+                <div className="flex items-center text-[#0070F3] mb-3">
                   {location.icon}
                   <span className="ml-2 text-lg font-medium">{location.city}</span>
                 </div>
@@ -473,7 +473,7 @@ const teamMembers = {
                   "Global, diverse team culture"
                 ].map((benefit, i) => (
                   <motion.div key={i} variants={fadeIn} className="flex items-center">
-                    <div className="h-2 w-2 rounded-full bg-[#6A43E7] mr-3" />
+                    <div className="h-2 w-2 rounded-full bg-[#0070F3] mr-3" />
                     <p>{benefit}</p>
                   </motion.div>
                 ))}
@@ -481,7 +481,7 @@ const teamMembers = {
               
               <motion.div variants={fadeIn} className="flex gap-4">
                 <Link href="/careers">
-                  <button className="px-6 py-3 bg-[#6A43E7] hover:bg-[#6A43E7bb] transition-colors rounded-lg flex items-center">
+                  <button className="px-6 py-3 bg-[#0070F3] hover:bg-[#0070F3bb] transition-colors rounded-lg flex items-center">
                     View Open Positions <ArrowRight className="ml-2 h-5 w-5" />
                   </button>
                 </Link>

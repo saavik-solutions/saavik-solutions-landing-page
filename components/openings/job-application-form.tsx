@@ -69,7 +69,7 @@ export default function JobApplicationForm({ jobTitle }: { jobTitle: string }) {
             onChange={handleChange}
             placeholder="John Doe"
             required
-            className="border-gray-300 bg-gray-50 px-4 py-3 focus:border-purple-500 focus:ring-purple-500"
+            className="border-gray-300 bg-gray-50 px-4 py-3 focus:border-blue-500 focus:ring-purple-500"
           />
         </div>
 
@@ -86,7 +86,7 @@ export default function JobApplicationForm({ jobTitle }: { jobTitle: string }) {
             onChange={handleChange}
             placeholder="john@example.com"
             required
-            className="border-gray-300 bg-gray-50 px-4 py-3 focus:border-purple-500 focus:ring-purple-500"
+            className="border-gray-300 bg-gray-50 px-4 py-3 focus:border-blue-500 focus:ring-purple-500"
           />
         </div>
 
@@ -102,7 +102,7 @@ export default function JobApplicationForm({ jobTitle }: { jobTitle: string }) {
             onChange={handleChange}
             placeholder="+1 (555) 000-0000"
             required
-            className="border-gray-300 bg-gray-50 px-4 py-3 focus:border-purple-500 focus:ring-purple-500"
+            className="border-gray-300 bg-gray-50 px-4 py-3 focus:border-blue-500 focus:ring-purple-500"
           />
         </div>
 
@@ -117,7 +117,7 @@ export default function JobApplicationForm({ jobTitle }: { jobTitle: string }) {
             value={formData.socialLinks}
             onChange={handleChange}
             placeholder="https://linkedin.com/in/johndoe, https://github.com/johndoe"
-            className="border-gray-300 bg-gray-50 px-4 py-3 focus:border-purple-500 focus:ring-purple-500"
+            className="border-gray-300 bg-gray-50 px-4 py-3 focus:border-blue-500 focus:ring-purple-500"
           />
         </div>
 
@@ -162,7 +162,7 @@ export default function JobApplicationForm({ jobTitle }: { jobTitle: string }) {
             value={formData.additionalInfo}
             onChange={handleChange}
             placeholder="Tell us why you're interested in this position and any additional information you'd like to share..."
-            className="min-h-[180px] border-gray-300 bg-gray-50 px-4 py-3 focus:border-purple-500 focus:ring-purple-500"
+            className="min-h-[180px] border-gray-300 bg-gray-50 px-4 py-3 focus:border-blue-500 focus:ring-purple-500"
           />
         </div>
 
@@ -170,7 +170,7 @@ export default function JobApplicationForm({ jobTitle }: { jobTitle: string }) {
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="w-full rounded-md bg-[#6A43E7] px-10 py-3 text-base font-medium hover:bg-[#4f2cc3] disabled:bg-gray-400 md:w-auto"
+          className="w-full rounded-md bg-[#6A43E7] px-10 py-3 text-base font-medium hover:bg-[#5a32d1] disabled:bg-gray-400 md:w-auto"
         >
           {isSubmitting ? "Submitting..." : "Submit Application"}
         </Button>

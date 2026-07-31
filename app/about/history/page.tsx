@@ -146,7 +146,7 @@ export default function HistoryPage() {
             </Link>
 
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Our <span className="text-[#6A43E7]">History</span>
+              Our <span className="text-[#0070F3]">History</span>
             </h1>
             <p className="text-xl text-gray-300 leading-relaxed">
               From our founding vision to today’s industry leadership, explore the key milestones that shaped Saavik
@@ -196,7 +196,7 @@ export default function HistoryPage() {
 
                 {/* Text */}
                 <div className="w-full lg:w-1/2 space-y-4">
-                  <p className="text-[#6A43E7] font-semibold">{event.year}</p>
+                  <p className="text-[#0070F3] font-semibold">{event.year}</p>
                   <h2 className="text-3xl font-bold">{event.title}</h2>
                   <p className="text-gray-300">{event.description}</p>
                   <ul className="list-disc list-inside space-y-2 text-gray-400">

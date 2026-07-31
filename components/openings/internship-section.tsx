@@ -24,7 +24,7 @@ export default function InternshipSection() {
             development, and marketing. Kickstart your career with meaningful, real-world challenges, and growth
             opportunities at Saavik Solutions.
           </p>
-          <Button className="rounded-md bg-[#6A43E7] px-6 py-2 text-sm font-medium hover:bg-[#4f2cc3]">
+          <Button className="rounded-md bg-[#6A43E7] px-6 py-2 text-sm font-medium hover:bg-[#5a32d1]">
             Apply Now for Internship
           </Button>
         </div>
