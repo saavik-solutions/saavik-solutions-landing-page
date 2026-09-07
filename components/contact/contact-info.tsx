@@ -23,7 +23,16 @@ export default function ContactInfo() {
           </div>
           <div>
             <h3 className="font-medium text-gray-900">Our Location</h3>
-            <p className="text-sm text-gray-600">123 Business Avenue, Tech Park, Hyderabad, India</p>
+            <a
+              href="https://maps.app.goo.gl/NWABAsU8CfrcG1aB7?g_st=ic"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-gray-600 hover:text-purple-600 transition-colors block"
+            >
+              Office no: 605 6th Floor<br />
+              110, Saifabad, Khairtabad,<br />
+              Hyderabad, Telangana 500004
+            </a>
           </div>
         </div>
 

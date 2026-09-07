@@ -141,7 +141,16 @@ export default function Footer() {
               <ul className="space-y-4">
                 <li className="flex items-start">
                   <MapPin className="h-4 w-4 text-[#6A43E7] mt-1 mr-3 flex-shrink-0" />
-                  <span className="text-sm text-gray-400/90 leading-relaxed">6250 West Park Dr Ste 319,<br />Houston, TX 77057<br />United States</span>
+                  <a
+                    href="https://maps.app.goo.gl/NWABAsU8CfrcG1aB7?g_st=ic"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-gray-400/90 leading-relaxed hover:text-white transition-colors"
+                  >
+                    Office no: 605 6th Floor,<br />
+                    110, Saifabad, Khairtabad,<br />
+                    Hyderabad, Telangana 500004
+                  </a>
                 </li>
                 <li className="flex items-start">
                   <Phone className="h-4 w-4 text-[#6A43E7] mt-1 mr-3 flex-shrink-0" />
