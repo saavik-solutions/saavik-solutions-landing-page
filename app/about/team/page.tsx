@@ -3,19 +3,55 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { motion, Variants } from "framer-motion"
-import { ArrowRight, Briefcase, Calendar, Globe, Mail, MapPin } from "lucide-react"
+import { motion, AnimatePresence, Variants } from "framer-motion"
+import { ArrowRight, ArrowUpRight, X, Briefcase, Calendar, Globe, Mail, MapPin } from "lucide-react"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { FaGithub, FaLinkedin, FaXTwitter, FaInstagram } from "react-icons/fa6"
+import AnimatedHeroButton from "@/components/ui/animated-hero-button"
+
+interface TeamMember {
+  name: string
+  position: string
+  image: string
+  bio: string
+  social: Record<string, string | undefined>
+}
 
 export default function TeamPage() {
   const [isVisible, setIsVisible] = useState(false)
   const [activeTab, setActiveTab] = useState("Visionaries at the Helm")
+  const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null)
 
   useEffect(() => {
     setIsVisible(true)
   }, [])
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSelectedMember(null)
+    }
+    if (selectedMember) {
+      document.body.style.overflow = "hidden"
+      window.addEventListener("keydown", handleKeyDown)
+    } else {
+      document.body.style.overflow = "unset"
+    }
+    return () => {
+      document.body.style.overflow = "unset"
+      window.removeEventListener("keydown", handleKeyDown)
+    }
+  }, [selectedMember])
+
+  const getSocialIcon = (platform: string) => {
+    switch (platform.toLowerCase()) {
+      case 'github': return <FaGithub className="h-4 w-4" />;
+      case 'linkedin': return <FaLinkedin className="h-4 w-4" />;
+      case 'twitter': return <FaXTwitter className="h-4 w-4" />;
+      case 'instagram': return <FaInstagram className="h-4 w-4" />;
+      default: return null;
+    }
+  };
 
   const fadeIn: Variants = {
     hidden: { opacity: 0, y: 20 },
@@ -222,55 +258,28 @@ const teamMembers = {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full">
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-purple-900/20 z-10" />
-         
-        </div>
-        
+      <section className="relative w-full min-h-[65vh] lg:min-h-[75vh] flex items-center pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden bg-black">
         <div className="container mx-auto px-6 relative z-20">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
+          <div className="flex flex-col items-center justify-center">
             <motion.div 
               initial="hidden"
               animate={isVisible ? "visible" : "hidden"}
               variants={fadeIn}
-              className="max-w-3xl mb-8 md:mb-0"
+              className="max-w-4xl mx-auto text-center flex flex-col items-center"
             >
-              <div className="mb-4">
-                <Link href="/about" className="text-gray-400 hover:text-purple-400 transition-colors flex items-center">
+              {/* Back to About - ONLY shown on mobile view */}
+              <div className="mb-6 block md:hidden">
+                <Link href="/about" className="inline-flex items-center text-sm font-medium text-gray-400 hover:text-purple-400 transition-colors px-4 py-1.5 rounded-full bg-white/5 border border-white/10 hover:border-purple-500/40">
                   <ArrowRight className="h-4 w-4 rotate-180 mr-2" /> Back to About
                 </Link>
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                Our <span className="bg-gradient-to-r from-[#0070F3] to-[#00C2FF] bg-clip-text text-transparent">Team</span>
+              <h1 className="mb-6 text-4xl font-bold text-white md:text-5xl lg:text-6xl text-center">
+                Our <span className="bg-gradient-to-r from-purple-600 to-purple-600 bg-clip-text text-transparent">Team</span>
               </h1>
-              <p className="text-xl text-gray-300 leading-relaxed">
-                Meet the talented professionals behind Saavik Solutions. Our diverse team combines deep technical expertise with creative problem-solving to deliver exceptional results.
+              <p className="mb-8 text-lg leading-relaxed text-gray-300 max-w-4xl text-center mx-auto">
+                Meet the passionate innovators, engineers, and strategists behind Saavik Solutions. Our diverse multidisciplinary team combines deep technical expertise with creative problem-solving to engineer transformative digital experiences, build scalable high-performance solutions, and drive enduring business growth for forward-thinking organizations worldwide.
               </p>
             </motion.div>
-            
-            {/* <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="bg-black/60 backdrop-blur-md p-6 rounded-xl border border-white/10"
-            >
-              <p className="text-lg font-semibold text-purple-400">Team Highlights</p>
-              <div className="mt-4 space-y-3">
-                <div className="flex items-center">
-                  <Globe className="h-5 w-5 text-gray-400 mr-3" />
-                  <p>18+ Countries Represented</p>
-                </div>
-                <div className="flex items-center">
-                  <Briefcase className="h-5 w-5 text-gray-400 mr-3" />
-                  <p>250+ Technology Experts</p>
-                </div>
-                <div className="flex items-center">
-                  <Calendar className="h-5 w-5 text-gray-400 mr-3" />
-                  <p>15+ Years Average Experience</p>
-                </div>
-              </div>
-            </motion.div> */}
           </div>
         </div>
       </section>
@@ -293,7 +302,7 @@ const teamMembers = {
             onClick={() => setActiveTab(tab)}
             className={`px-5 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base transition-all duration-300 font-medium ${
               activeTab === tab
-                ? 'bg-[#0070F3] text-white shadow-lg'
+                ? 'bg-gradient-to-r from-purple-600 to-purple-600 text-white shadow-lg shadow-purple-600/30'
                 : 'bg-gray-900 text-gray-300 hover:bg-gray-800'
             }`}
           >
@@ -320,10 +329,11 @@ const teamMembers = {
         <motion.div
           key={index}
           variants={fadeIn}
-          className="bg-gradient-to-br from-gray-900 to-black rounded-xl overflow-hidden border border-gray-800 hover:border-[#0070F3]/30 transition-all duration-300 group"
+          onClick={() => setSelectedMember(member as any)}
+          className="bg-gradient-to-br from-gray-900 to-black rounded-xl overflow-hidden border border-gray-800 hover:border-purple-600/50 transition-all duration-300 group cursor-pointer flex flex-col justify-between hover:shadow-xl hover:shadow-purple-900/20"
         >
           {/* Image Section */}
-          <div className="relative h-72 sm:h-80">
+          <div className="relative h-72 sm:h-80 w-full overflow-hidden bg-black/40">
             <Image
               src={member.image}
               alt={member.name}
@@ -333,46 +343,31 @@ const teamMembers = {
               priority={index < 3}
               quality={90}
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
           </div>
 
-          {/* Info Section */}
-          <div className="p-5 sm:p-6">
-            <h3 className="text-xl sm:text-2xl font-bold mb-1 group-hover:text-purple-400 transition-colors">
-              {member.name}
-            </h3>
-            <p className="text-[#0070F3] text-sm sm:text-base mb-3">{member.position}</p>
-            <p className="text-gray-400 text-sm sm:text-base mb-4">{member.bio}</p>
-
-            {/* Social Icons */}
-            <div className="flex gap-3">
-              {Object.entries(member.social).map(([platform, url]) => {
-                const getSocialIcon = (platform: string) => {
-                  switch (platform.toLowerCase()) {
-                    case 'github': return <FaGithub className="h-5 w-5" />;
-                    case 'linkedin': return <FaLinkedin className="h-5 w-5" />;
-                    case 'twitter': return <FaXTwitter className="h-5 w-5" />;
-                    case 'instagram': return <FaInstagram className="h-5 w-5" />;
-                    default: return null;
-                  }
-                };
-
-                const icon = getSocialIcon(platform);
-                if (!icon) return null;
-
-                return (
-                  <a
-                    key={platform}
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 bg-gray-800 hover:bg-[#0070F3] rounded-full transition-colors"
-                    aria-label={`${platform} profile`}
-                  >
-                    {icon}
-                  </a>
-                );
-              })}
+          {/* Info Section - Name, Designation and View More button with icon */}
+          <div className="p-5 flex items-center justify-between gap-3 bg-gradient-to-b from-gray-900/90 to-black">
+            <div className="min-w-0 flex-1">
+              <h3 className="text-xl sm:text-2xl font-bold group-hover:text-purple-400 transition-colors truncate">
+                {member.name}
+              </h3>
+              <p className="text-purple-400 text-sm font-medium truncate mt-0.5">
+                {member.position}
+              </p>
             </div>
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedMember(member);
+              }}
+              className="flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium text-gray-200 bg-white/5 border border-white/10 group-hover:border-purple-500/50 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300 shadow-sm"
+              aria-label={`View details for ${member.name}`}
+            >
+              <span>View More</span>
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </button>
           </div>
         </motion.div>
       ))}
@@ -416,7 +411,7 @@ const teamMembers = {
                 variants={fadeIn}
                 className="bg-gray-900 p-6 rounded-xl border border-gray-800"
               >
-                <div className="flex items-center text-[#0070F3] mb-3">
+                <div className="flex items-center text-purple-400 mb-3">
                   {location.icon}
                   <span className="ml-2 text-lg font-medium">{location.city}</span>
                 </div>
@@ -473,17 +468,15 @@ const teamMembers = {
                   "Global, diverse team culture"
                 ].map((benefit, i) => (
                   <motion.div key={i} variants={fadeIn} className="flex items-center">
-                    <div className="h-2 w-2 rounded-full bg-[#0070F3] mr-3" />
+                    <div className="h-2 w-2 rounded-full bg-purple-600 mr-3" />
                     <p>{benefit}</p>
                   </motion.div>
                 ))}
               </motion.div>
               
-              <motion.div variants={fadeIn} className="flex gap-4">
+              <motion.div variants={fadeIn} className="flex flex-wrap items-center gap-4">
                 <Link href="/careers">
-                  <button className="px-6 py-3 bg-[#0070F3] hover:bg-[#0070F3bb] transition-colors rounded-lg flex items-center">
-                    View Open Positions <ArrowRight className="ml-2 h-5 w-5" />
-                  </button>
+                  <AnimatedHeroButton text="VIEW OPEN POSITIONS" showIcon={false} />
                 </Link>
                 <Link href="/contact-us">
                   <button className="px-6 py-3 border border-white/20 hover:bg-white/10 transition-colors rounded-lg flex items-center">
@@ -495,7 +488,111 @@ const teamMembers = {
           </div>
         </div>
       </section>
-      
+
+      {/* Team Member Detail Modal Popup */}
+      <AnimatePresence>
+        {selectedMember && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-8">
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={() => setSelectedMember(null)}
+              className="fixed inset-0 bg-black/80 backdrop-blur-md"
+            />
+
+            {/* Modal Box */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="relative z-10 w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-gray-900 via-[#12111c] to-black border border-white/15 rounded-2xl shadow-2xl shadow-purple-900/40 p-6 sm:p-8 text-white"
+            >
+              {/* Close Button */}
+              <button
+                type="button"
+                onClick={() => setSelectedMember(null)}
+                className="absolute top-3 right-3 sm:top-5 sm:right-5 p-2 rounded-full bg-black/70 hover:bg-black/90 text-gray-200 hover:text-white border border-white/20 shadow-lg transition-colors z-30 backdrop-blur-md"
+                aria-label="Close modal"
+              >
+                <X className="h-5 w-5" />
+              </button>
+
+              <div className="flex flex-col md:flex-row gap-6 sm:gap-8 items-start">
+                {/* Profile Image */}
+                <div className="relative w-full md:w-56 h-72 sm:h-80 md:h-80 flex-shrink-0 rounded-xl overflow-hidden border border-white/10 bg-black">
+                  <Image
+                    src={selectedMember.image}
+                    alt={selectedMember.name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 240px"
+                    className="object-cover"
+                    quality={95}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                </div>
+
+                {/* Member Details */}
+                <div className="flex-1 flex flex-col justify-between w-full">
+                  <div>
+                    <span className="inline-block text-xs uppercase tracking-wider font-semibold text-purple-400 bg-purple-500/10 border border-purple-500/20 px-3 py-1 rounded-full mb-3">
+                      {activeTab}
+                    </span>
+                    <h2 className="text-2xl sm:text-3xl font-bold mb-1 text-white">
+                      {selectedMember.name}
+                    </h2>
+                    <p className="text-purple-400 text-base sm:text-lg font-medium mb-4">
+                      {selectedMember.position}
+                    </p>
+                    <div className="h-px bg-white/10 w-full mb-4" />
+                    <div className="mb-6">
+                      <h4 className="text-xs uppercase tracking-wider text-gray-400 font-semibold mb-2">
+                        About
+                      </h4>
+                      <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+                        {selectedMember.bio}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Social Links */}
+                  {selectedMember.social && Object.keys(selectedMember.social).length > 0 && (
+                    <div>
+                      <h4 className="text-xs uppercase tracking-wider text-gray-400 font-semibold mb-2">
+                        Connect
+                      </h4>
+                      <div className="flex flex-wrap gap-2.5">
+                        {Object.entries(selectedMember.social).map(([platform, url]) => {
+                          const icon = getSocialIcon(platform);
+                          if (!icon) return null;
+
+                          return (
+                            <a
+                              key={platform}
+                              href={url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-white/5 hover:bg-purple-600 text-gray-300 hover:text-white border border-white/10 hover:border-purple-500 transition-all text-xs font-medium"
+                              aria-label={`${selectedMember.name} on ${platform}`}
+                            >
+                              {icon}
+                              <span className="capitalize">{platform}</span>
+                            </a>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
       <Footer />
     </div>
   )

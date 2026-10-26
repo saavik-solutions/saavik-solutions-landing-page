@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 
 export default function ServicesGrid() {
   return (
-    <section className="w-full bg-gradient-to-b from-gray-50 to-white py-20">
+    <section id="services-section" className="w-full bg-gradient-to-b from-gray-50 to-white py-20 scroll-mt-20">
       <div className="container mx-auto px-4">
         <motion.div
           className="mb-16 text-center"
