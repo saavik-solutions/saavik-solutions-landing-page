@@ -199,13 +199,13 @@ export default function MissionPage() {
                 </motion.div>
 
                 <motion.div variants={fadeIn}>
-                  <h2 className="mb-6 text-4xl font-bold text-black md:text-5xl lg:text-6xl tracking-tight">
+                  <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
                     Our <span className="bg-gradient-to-r from-purple-600 to-purple-600 bg-clip-text text-transparent">Mission</span>
                   </h2>
-                  <p className="text-gray-600 text-base md:text-lg mb-6 leading-relaxed">
+                  <p className="text-gray-600 mb-6 leading-relaxed">
                     At Saavik Solutions, we exist to solve complex business challenges through innovative, human-centric technology solutions that drive sustainable growth, operational efficiency, and lasting competitive advantage for our clients worldwide.
                   </p>
-                  <p className="text-gray-600 text-base md:text-lg mb-6 leading-relaxed">
+                  <p className="text-gray-600 mb-6 leading-relaxed">
                     By seamlessly blending technical excellence with deep strategic insight, we empower forward-thinking organizations across diverse industries to accelerate digital transformation, modernize legacy systems, and achieve measurable, high-impact results.
                   </p>
 
@@ -227,13 +227,13 @@ export default function MissionPage() {
                 className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
               >
                 <motion.div variants={fadeIn} className="order-2 lg:order-1">
-                  <h2 className="mb-6 text-4xl font-bold text-black md:text-5xl lg:text-6xl tracking-tight">
+                  <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
                     Our <span className="bg-gradient-to-r from-purple-600 to-purple-600 bg-clip-text text-transparent">Vision</span>
                   </h2>
-                  <p className="text-gray-600 text-base md:text-lg mb-6 leading-relaxed">
+                  <p className="text-gray-600 mb-6 leading-relaxed">
                     To be the premier global leader in transformative technology solutions, recognized for our relentless innovation, engineering excellence, and the measurable impact we create for our clients and communities worldwide.
                   </p>
-                  <p className="text-gray-600 text-base md:text-lg mb-6 leading-relaxed">
+                  <p className="text-gray-600 mb-6 leading-relaxed">
                     We envision a future where organizations of every scale seamlessly harness intelligent digital ecosystems to achieve unprecedented agility, operational resilience, and enduring competitive advantage.
                   </p>
 
@@ -253,8 +253,8 @@ export default function MissionPage() {
                         key={i}
                         className="bg-gray-50 hover:bg-purple-50/50 p-6 rounded-xl border-l-4 border-purple-600 border-t border-r border-b border-gray-200/70 shadow-sm transition-all"
                       >
-                        <h3 className="text-xl font-bold text-gray-900 mb-1">{item.title}</h3>
-                        <p className="text-gray-600 text-base md:text-lg leading-relaxed">
+                        <h3 className="text-xl font-semibold text-gray-900 mb-2">{item.title}</h3>
+                        <p className="text-gray-600 leading-relaxed">
                           {item.desc}
                         </p>
                       </motion.div>
@@ -289,10 +289,10 @@ export default function MissionPage() {
                 className="space-y-12"
               >
                 <motion.div variants={fadeIn} className="text-center max-w-3xl mx-auto">
-                  <h2 className="mb-6 text-4xl font-bold text-black md:text-5xl lg:text-6xl tracking-tight">
+                  <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
                     Our <span className="bg-gradient-to-r from-purple-600 to-purple-600 bg-clip-text text-transparent">Core Values</span>
                   </h2>
-                  <p className="text-gray-600 text-base md:text-lg mb-6 leading-relaxed max-w-3xl mx-auto">
+                  <p className="text-gray-600 mb-6 leading-relaxed max-w-3xl mx-auto">
                     These foundational principles guide our decisions, inspire our craftsmanship, and shape our culture every day—defining who we are and ensuring we consistently deliver excellence for every client we serve.
                   </p>
                 </motion.div>
@@ -308,7 +308,7 @@ export default function MissionPage() {
                         <div className="p-3.5 bg-purple-100 text-purple-600 rounded-xl mr-4 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300">
                           {value.icon}
                         </div>
-                        <h3 className="text-2xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors">{value.title}</h3>
+                        <h3 className="text-xl font-semibold text-gray-900 group-hover:text-purple-600 transition-colors">{value.title}</h3>
                       </div>
                       <p className="text-gray-600 leading-relaxed">
                         {value.description}
