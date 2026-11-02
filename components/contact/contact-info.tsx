@@ -1,6 +1,6 @@
 'use client'
 import Link from "next/link"
-import { MapPin, Phone, Mail, Clock, Linkedin, Facebook, Twitter, Instagram } from "lucide-react"
+import { MapPin, Phone, Mail, Clock, Linkedin } from "lucide-react"
 import dynamic from "next/dynamic"
 
 // Import the map component with no SSR
@@ -74,36 +74,13 @@ export default function ContactInfo() {
         <h3 className="mb-4 font-medium text-gray-900">Connect With Us</h3>
         <div className="flex space-x-4">
           <Link
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/company/saavik-solutions-inc/posts/"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-gray-100 p-2 text-gray-600 transition-colors hover:bg-purple-100 hover:text-purple-600"
+            className="rounded-full bg-gray-100 p-2.5 text-gray-600 transition-colors hover:bg-purple-100 hover:text-purple-600 inline-flex items-center justify-center"
+            aria-label="LinkedIn"
           >
             <Linkedin className="h-5 w-5" />
-          </Link>
-          <Link
-            href="https://facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full bg-gray-100 p-2 text-gray-600 transition-colors hover:bg-purple-100 hover:text-purple-600"
-          >
-            <Facebook className="h-5 w-5" />
-          </Link>
-          <Link
-            href="https://twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full bg-gray-100 p-2 text-gray-600 transition-colors hover:bg-purple-100 hover:text-purple-600"
-          >
-            <Twitter className="h-5 w-5" />
-          </Link>
-          <Link
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full bg-gray-100 p-2 text-gray-600 transition-colors hover:bg-purple-100 hover:text-purple-600"
-          >
-            <Instagram className="h-5 w-5" />
           </Link>
         </div>
       </div>

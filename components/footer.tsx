@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { ArrowRight, Github, Twitter, Linkedin, Instagram, Mail, Phone, MapPin, ChevronUp } from "lucide-react"
+import { ArrowRight, Linkedin, Mail, Phone, MapPin, ChevronUp } from "lucide-react"
 import { TextHoverEffect, FooterBackgroundGradient } from "@/components/ui/hover-footer"
 import Magnet from "@/components/ui/Magnet"
 
@@ -106,11 +106,15 @@ export default function Footer() {
                 Transforming businesses through innovative technology solutions that drive growth and efficiency.
               </p>
               <div className="flex space-x-3 pt-2">
-                {[Github, Twitter, Linkedin, Instagram].map((Icon, i) => (
-                  <a key={i} href="#" target="_blank" rel="noopener noreferrer" className="p-2.5 border border-white/10 hover:border-[#6A43E7] hover:bg-[#6A43E7]/10 text-gray-400 hover:text-white rounded-full transition-all" aria-label="Social link">
-                    <Icon className="h-4 w-4" />
-                  </a>
-                ))}
+                <a
+                  href="https://www.linkedin.com/company/saavik-solutions-inc/posts/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2.5 border border-white/10 hover:border-[#6A43E7] hover:bg-[#6A43E7]/10 text-gray-400 hover:text-white rounded-full transition-all inline-flex items-center justify-center"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="h-4 w-4" />
+                </a>
               </div>
             </motion.div>
 

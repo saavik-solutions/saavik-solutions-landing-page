@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Linkedin, Twitter, Facebook, Instagram, ChevronDown } from "lucide-react"
+import { Menu, X, Linkedin, ChevronDown } from "lucide-react"
 import { Sheet, SheetTrigger } from "@/components/ui/sheet"
 import { AnimatedDiv } from "@/components/ui/animated-div"
 import { AnimatedMobileSidebar } from "./ui/animated-mobile-sidebar"
@@ -158,13 +158,17 @@ export default function Navbar() {
             <div className="mt-auto border-t border-white/10 pt-6 pb-4 stagger-item">
               <p className="text-center text-xs text-gray-400 mb-3">Connect with us</p>
               <div className="flex justify-center space-x-4">
-                {[Linkedin, Twitter, Facebook, Instagram].map((Icon, i) => (
-                  <a key={i} href="#" className="p-2 rounded-full bg-white/10 text-white hover:bg-purple-700 transition-colors duration-200">
-                    <Icon className="w-5 h-5" />
-                  </a>
-                ))}
+                <a
+                  href="https://www.linkedin.com/company/saavik-solutions-inc/posts/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2.5 rounded-full bg-white/10 text-white hover:bg-purple-700 transition-colors duration-200 inline-flex items-center justify-center"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-5 h-5" />
+                </a>
               </div>
-              <p className="mt-6 text-center text-[10px] text-gray-500">© 2025 Your Company</p>
+              <p className="mt-6 text-center text-[10px] text-gray-500">© 2026 Saavik Solutions</p>
             </div>
           </StaggeredMenu>
         </div>
