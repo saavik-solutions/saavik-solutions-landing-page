@@ -42,7 +42,10 @@ export default function ContactInfo() {
           </div>
           <div>
             <h3 className="font-medium text-gray-900">Phone Number</h3>
-            <p className="text-sm text-gray-600">+91 (123) 456-7890</p>
+            <div className="flex flex-col space-y-1">
+              <a href="tel:+14087416166" className="text-sm text-gray-600 hover:text-purple-600 transition-colors">+1 408 741 6166</a>
+              <a href="tel:+919701563362" className="text-sm text-gray-600 hover:text-purple-600 transition-colors">+91 97015 63362</a>
+            </div>
           </div>
         </div>
 

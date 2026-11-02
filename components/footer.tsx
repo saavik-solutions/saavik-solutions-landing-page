@@ -121,9 +121,9 @@ export default function Footer() {
                 {[
                   { path: "/about", label: "About Us" },
                   { path: "/services", label: "Services" },
-                  { path: "/case-studies", label: "Case Studies" },
                   { path: "/careers", label: "Careers" },
-                  { path: "/blog", label: "Blog" }
+                  { path: "/blogs", label: "Blog" },
+                  { path: "/contact-us", label: "Contact Us" }
                 ].map((link, index) => (
                   <li key={index}>
                     <Link href={link.path} className="text-sm text-gray-400/90 hover:text-white transition-colors flex items-center group">
@@ -155,7 +155,7 @@ export default function Footer() {
                 <li className="flex items-start">
                   <Phone className="h-4 w-4 text-[#6A43E7] mt-1 mr-3 flex-shrink-0" />
                   <div className="flex flex-col space-y-1">
-                    <a href="tel:+14087416969" className="text-sm text-gray-400/90 hover:text-white transition-colors">+1 (408) 741 6969</a>
+                    <a href="tel:+14087416166" className="text-sm text-gray-400/90 hover:text-white transition-colors">+1 408 741 6166</a>
                     <a href="tel:+919701563362" className="text-sm text-gray-400/90 hover:text-white transition-colors">+91 97015 63362</a>
                   </div>
                 </li>
@@ -203,9 +203,13 @@ export default function Footer() {
               © {new Date().getFullYear()} Saavik Solutions. All rights reserved.
             </p>
             <div className="flex items-center space-x-6">
-              {["/privacy-policy", "/terms", "/sitemap"].map((path, idx) => (
-                <Link key={idx} href={path} className="text-gray-500 hover:text-white text-sm tracking-wide transition-colors">
-                  {path.split("/")[1].replace("-", " ").replace(/\b\w/g, l => l.toUpperCase())}
+              {[
+                { path: "/privacy-policy", label: "Privacy Policy" },
+                { path: "/terms", label: "Terms of Service" },
+                { path: "/sitemap", label: "Sitemap" },
+              ].map((item, idx) => (
+                <Link key={idx} href={item.path} className="text-gray-500 hover:text-white text-sm tracking-wide transition-colors">
+                  {item.label}
                 </Link>
               ))}
             </div>
