@@ -1,12 +1,13 @@
 'use client'
 import Image from "next/image"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
 import { motion } from "framer-motion"
 
 export default function CareersHero() {
   return (
-    <section className="relative w-full min-h-[500px] py-20 bg-black text-white">
+    <section className="relative w-full min-h-[500px] pt-32 pb-20 md:pt-36 md:pb-24 lg:pt-40 lg:pb-28 bg-black text-white">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-black/50"></div>
 
@@ -38,9 +39,11 @@ export default function CareersHero() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <Button className="rounded-full bg-gradient-to-r from-purple-600 to-purple-600 px-8 py-3 text-sm font-medium uppercase hover:shadow-xl transition-all duration-300 hover:scale-105">
-                View Job Openings
-              </Button>
+              <Link href="/openings">
+                <Button className="rounded-full bg-gradient-to-r from-purple-600 to-purple-600 px-8 py-3 text-sm font-medium uppercase hover:shadow-xl transition-all duration-300 hover:scale-105">
+                  View Job Openings
+                </Button>
+              </Link>
             </motion.div>
           </div>
 

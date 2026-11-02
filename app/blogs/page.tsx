@@ -12,7 +12,7 @@ export default function BlogPage() {
       <div className="text-black">
         <Navbar />
       </div>
-      <div className="bg-white">
+      <div>
         {/* ✅ safe JSON props only */}
         <BlogClient posts={posts} />
       </div>

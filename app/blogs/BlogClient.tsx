@@ -1,30 +1,23 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-//import Link from "next/link"
 import Image from "next/image"
+import Link from "next/link"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-//import { Card, CardContent } from "@/components/ui/card"
 import { motion, AnimatePresence, Variants } from "framer-motion"
-import { Search, MessageCircle, Clock } from "lucide-react"
-import Link from "next/link"
-
+import { Search, MessageCircle, Clock, Calendar, ArrowRight, Sparkles } from "lucide-react"
 
 const fadeIn: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 }
 
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
-}
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.1 },
+    transition: { staggerChildren: 0.08 },
   },
 }
 
@@ -40,7 +33,7 @@ const itemVariants: Variants = {
 const dropdownVariants: Variants = {
   hidden: { height: 0, opacity: 0 },
   visible: {
-    height: 'auto',
+    height: "auto",
     opacity: 1,
     transition: { height: { duration: 0.3 }, opacity: { duration: 0.2 } },
   },
@@ -49,16 +42,13 @@ const dropdownVariants: Variants = {
 const categories = [
   "All",
   "AI & Technology",
-  "Mechine Learning",
+  "Machine Learning",
   "Web Development",
-  "Perfomance",
+  "Performance",
   "Design & UX",
   "SEO",
-  "Node.js",
-  "React.js",
+  "Digital Marketing",
   "Branding",
-  "Social Media",
-  "Test",
   "Marketing Strategy",
   "Content Creation",
 ]
@@ -66,347 +56,429 @@ const categories = [
 export default function BlogClient({ posts }: { posts: any[] }) {
   const [activeCategory, setActiveCategory] = useState("All")
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-  const [searchQuery, setSearchQuery] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("")
+  const [loading, setLoading] = useState(false)
+
   const filteredPosts = posts.filter((post) => {
-    if (!post.title) return false;
-    
-  const matchesCategory =
-    activeCategory === "All" || post.tags?.includes(activeCategory);
+    if (!post.title) return false
 
-  const title = post.title || "";
-  const matchesSearch = title.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesCategory =
+      activeCategory === "All" ||
+      post.tags?.some((t: string) => t.toLowerCase() === activeCategory.toLowerCase()) ||
+      (post.category && post.category.toLowerCase() === activeCategory.toLowerCase())
 
-  return matchesCategory && matchesSearch;
-});
-const postsPerPage = 6;
-const [currentPage, setCurrentPage] = useState(1);
+    const title = post.title || ""
+    const excerpt = post.excerpt || ""
+    const query = searchQuery.toLowerCase()
+    const matchesSearch =
+      title.toLowerCase().includes(query) ||
+      excerpt.toLowerCase().includes(query)
 
-const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
+    return matchesCategory && matchesSearch
+  })
 
-const paginatedPosts = filteredPosts.slice(
-  (currentPage - 1) * postsPerPage,
-  currentPage * postsPerPage
-); 
-useEffect(() => {
-  setCurrentPage(1);
-}, [searchQuery, activeCategory]);
-const topRef = useRef<HTMLDivElement | null>(null);
+  const postsPerPage = 6
+  const [currentPage, setCurrentPage] = useState(1)
 
-useEffect(() => {
-  setLoading(true);
-  const timeout = setTimeout(() => {
-    setLoading(false);
-    topRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, 300); // adjust duration if needed
+  const totalPages = Math.ceil(filteredPosts.length / postsPerPage)
 
-  return () => clearTimeout(timeout);
-}, [currentPage]);
-  // Removed duplicate setIsDropdownOpen function
+  const paginatedPosts = filteredPosts.slice(
+    (currentPage - 1) * postsPerPage,
+    currentPage * postsPerPage
+  )
+
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [searchQuery, activeCategory])
+
+  const topRef = useRef<HTMLDivElement | null>(null)
+
+  useEffect(() => {
+    setLoading(true)
+    const timeout = setTimeout(() => {
+      setLoading(false)
+      topRef.current?.scrollIntoView({ behavior: "smooth" })
+    }, 250)
+
+    return () => clearTimeout(timeout)
+  }, [currentPage])
 
   return (
-    <div className="bg-white m-none">
-      {/* Header Section */}
-      <section className="bg-black m-none">
-        <div className="container">
+    <div className="w-full">
+      {/* Hero Header Section */}
+      <section className="relative w-full bg-black text-white pt-32 pb-16 md:pt-36 md:pb-20 lg:pt-40 lg:pb-24 overflow-hidden">
+        {/* Ambient Brand Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[800px] h-[300px] bg-purple-600/15 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute top-1/3 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[200px] bg-indigo-600/15 rounded-full blur-[100px] pointer-events-none" />
+
+        <div className="container relative z-10 mx-auto px-4 md:px-6">
           <motion.div
             className="text-center space-y-6 max-w-3xl mx-auto"
             initial="hidden"
             animate="visible"
             variants={fadeIn}
           >
-            <h1 className="text-4xl md:text-6xl font-bold">
-              Saavik Solutions <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0070F3] to-[#00C2FF] sm:inline">Blogs</span>
-            </h1>
-            <p className="text-muted-foreground text-lg">
-              Stay updated with the latest insights on AI technology, digital marketing trends, and industry best
-              practices
-            </p>
-            <div className="relative max-w-md mx-auto mt-8">
-      <Search className="absolute left-3 top-2.5 h-5 w-5 text-muted-foreground" />
-      <Input
-        type="text"
-        placeholder="Search Articles"
-        value={searchQuery}
-        className="pl-10 pr-4 py-2 bg-background border border-[#D1D5DB] rounded-md focus:border-[#0070F3] focus:ring-0 focus:outline-none transition-colors duration-300"
-        onChange={(e) => setSearchQuery(e.target.value)}
-      />
-    </div>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-medium tracking-wide">
+              <Sparkles className="h-3.5 w-3.5 text-purple-400" />
+              <span>LATEST ARTICLES & INSIGHTS</span>
+            </div>
 
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white">
+              Saavik Solutions{" "}
+              <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+                Blogs
+              </span>
+            </h1>
+
+            <p className="text-gray-300 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+              Stay updated with the latest insights on AI technology, digital marketing trends, and industry best practices.
+            </p>
+
+            <div className="relative max-w-lg mx-auto mt-8">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-purple-400" />
+              <Input
+                type="text"
+                placeholder="Search articles by title, topic or keyword..."
+                value={searchQuery}
+                className="pl-12 pr-4 py-3 h-12 bg-white/10 text-white placeholder-gray-400 border border-white/15 rounded-full backdrop-blur-md focus:border-purple-500 focus:ring-2 focus:ring-purple-500/30 focus:outline-none transition-all duration-300 text-sm md:text-base shadow-inner"
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+            </div>
           </motion.div>
         </div>
       </section>
-      
-      {/* Categories */}
- {/* <FeaturedBlogs/>  */}
-<div className="container mt-12 flex flex-col lg:flex-row"> 
-      
-{/* Desktop Sidebar */}
-<aside className="hidden lg:block lg:w-[260px]">
-  <div className="overflow-hidden rounded-xl shadow-md">
-    <div className="bg-gradient-to-r from-[#0070F3] to-[#0096F9] p-4 rounded-t-xl">
-      <h3 className="text-lg font-bold text-white">Categories</h3>
-    </div>
-    <div className="h-[500px] overflow-y-auto bg-gray-900 category-scrollbar rounded-b-xl">
-      <motion.ul
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="divide-y divide-gray-800"
-      >
-        {categories.map((category, idx) => (
-          <motion.li key={idx} variants={itemVariants}>
-            <button
-              onClick={() => setActiveCategory(category)}
-              className={`block w-full p-3 text-left text-sm font-medium transition-colors duration-200 hover:bg-gray-500 hover:text-white ${
-                activeCategory === category
-                  ? 'bg-gray-600 text-white'
-                  : 'text-gray-300'
-              }`}
-            >
-              {category}
-            </button>
-          </motion.li>
-        ))}
-      </motion.ul>
-    </div>
-  </div>
-</aside>
-{/* Mobile Dropdown */}
-<div className="mb-6 lg:hidden">
-  <div className="overflow-hidden rounded-xl shadow-md">
-    <button
-      onClick={() => setIsDropdownOpen((prev: boolean) => !prev)}
-      className="flex w-full items-center justify-between bg-gradient-to-r from-[#0070F3] to-[#0096F9] p-4 text-white rounded-t-xl"
-    >
-      <h3 className="text-lg font-bold">{activeCategory || "Select Category"}</h3>
-      <motion.svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-5 w-5"
-        fill="none"
-        viewBox="0 0 24 24"
-        animate={{ rotate: isDropdownOpen ? 180 : 0 }}
-        transition={{ duration: 0.3 }}
-      >
-        <path
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M19 9l-7 7-7-7"
-        />
-      </motion.svg>
-    </button>
 
-    <AnimatePresence>
-      {isDropdownOpen && (
-        <motion.div
-          className="max-h-[300px] overflow-y-auto bg-gray-900 category-scrollbar rounded-b-xl"
-          variants={dropdownVariants}
-          initial="hidden"
-          animate="visible"
-          exit="hidden"
-        >
-          <ul className="divide-y divide-gray-800">
-            {categories.map((category, idx) => (
-              <li key={idx}>
-                <button
-                  onClick={() => {
-                    setActiveCategory(category);
-                    setIsDropdownOpen(false);
-                  }}
-                  className={`block w-full p-3 text-left text-sm font-medium transition-colors duration-200 hover:bg-gray-800 hover:text-white ${
-                    activeCategory === category
-                      ? 'bg-gray-800 text-white'
-                      : 'text-gray-300'
-                  }`}
+      {/* Main Blog Content Section */}
+      <div className="bg-[#FAF9FD] py-12 md:py-16">
+        <div className="container mx-auto px-4 md:px-6 flex flex-col lg:flex-row gap-8">
+          {/* Desktop Sidebar */}
+          <aside className="hidden lg:block lg:w-[280px] shrink-0">
+            <div className="sticky top-28 rounded-2xl bg-white border border-gray-100 shadow-sm overflow-hidden">
+              <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-purple-500 px-5 py-4 text-white">
+                <h3 className="text-sm font-bold tracking-wider uppercase">Categories</h3>
+              </div>
+              <div className="max-h-[520px] overflow-y-auto category-scrollbar p-2">
+                <motion.ul
+                  variants={containerVariants}
+                  initial="hidden"
+                  animate="visible"
+                  className="space-y-1"
                 >
-                  {category}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  </div>
-</div>
-{/* Posts Section */}
-<div ref={topRef} />
-<section className="w-full pt-12 lg:pl-6 lg:flex-1">
-  <header className="flex items-center justify-between mb-4">
-    <h2 className="text-gray-500 text-xl font-bold">
-      <span className="text-purple-700">{activeCategory}</span> Articles
-    </h2>
-    <p className="text-xl text-gray-700">
-      {filteredPosts.length} {filteredPosts.length === 1 ? 'article' : 'articles'} found
-    </p>
-  </header>
+                  {categories.map((category, idx) => {
+                    const count =
+                      category === "All"
+                        ? posts.length
+                        : posts.filter(
+                            (p) =>
+                              p.tags?.some((t: string) => t.toLowerCase() === category.toLowerCase()) ||
+                              (p.category && p.category.toLowerCase() === category.toLowerCase())
+                          ).length
 
-  <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
-    <AnimatePresence mode="wait">
-      {loading ? (
-        <motion.div
-          key="loading"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="flex h-40 items-center justify-center"
-        >
-          <div className="h-8 w-8 animate-spin rounded-full border-4 border-gray-300 border-t-purple-600" />
-        </motion.div>
-      ) : filteredPosts.length === 0 ? (
-        <motion.div
-          key="empty"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="flex h-40 flex-col items-center justify-center text-center"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-12 w-12 mb-2 text-gray-400"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={1.5}
-              d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-            />
-          </svg>
-          <p className="text-gray-500">No articles found in this category.</p>
-        </motion.div>
-      ) : (
-        <motion.div
-  key={`posts-page-${currentPage}-${activeCategory}-${searchQuery}`}
-  variants={containerVariants}
-  initial="hidden"
-  animate="visible"
-  exit={{ opacity: 0 }}
-  className="space-y-6"
-> 
-  <div className="grid grid-cols-2 ml-3 mr-3 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
-    {paginatedPosts.map((post) => (
-  <motion.article
-    key={post.id || post.slug}
-    variants={itemVariants}
-    className="group flex flex-col h-[450px] w-full overflow-hidden rounded-xl bg-gradient-to-r from-[#160d32] via-[#23113e] to-[#23113e] sm:inline shadow-md transition-transform duration-300 hover:scale-[1.02] text-white"
-    whileHover={{ y: -5, transition: { duration: 0.2 } }}
-  >
-    <Link href={`/blogs/${post.slug}`} className="flex flex-col h-full w-full">
-      {/* Image */}
-      <div className="relative h-56 w-full">
-        {post.image ? (
-          <Image
-            src={post.image}
-            alt={post.title}
-            fill
-            className="object-cover object-center"
-          />
-        ) : (
-          <div className="bg-gray-300 h-full w-full" />
-        )}
-      </div>
+                    return (
+                      <motion.li key={idx} variants={itemVariants}>
+                        <button
+                          onClick={() => setActiveCategory(category)}
+                          className={`flex items-center justify-between w-full px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
+                            activeCategory === category
+                              ? "bg-purple-600 text-white font-semibold shadow-md shadow-purple-600/20"
+                              : "text-gray-600 hover:bg-purple-50 hover:text-purple-700"
+                          }`}
+                        >
+                          <span>{category}</span>
+                          <span
+                            className={`text-xs px-2 py-0.5 rounded-full ${
+                              activeCategory === category
+                                ? "bg-white/20 text-white font-semibold"
+                                : "bg-gray-100 text-gray-500"
+                            }`}
+                          >
+                            {count}
+                          </span>
+                        </button>
+                      </motion.li>
+                    )
+                  })}
+                </motion.ul>
+              </div>
+            </div>
+          </aside>
 
-      {/* Content */}
-      <div className="flex flex-col justify-between gap-1 flex-grow p-6 text-white">
-        <h3 className="text-xl font-extrabold leading-tight line-clamp-2 group-hover:text-white-800 transition-colors">
-          {post.title}
-        </h3>
-        <p className="text-sm text-white-200 line-clamp-2">{post.excerpt}</p>
-        <div className="flex justify-between text-sm text-white-900">
-          <span>{post.author}</span>
-          {post.date && (
-            <time>
-              {new Date(post.date).toLocaleDateString("en-US", {
-                month: "short",
-                day: "numeric",
-                year: "numeric",
-              })}
-            </time>
-          )}
-        </div>
-
-        {Array.isArray(post.tags) && post.tags.length > 0 && (
-          <div className="flex flex-wrap gap-3 mt-2 mb-3">
-            {post.tags.map((tag: string, index: number) => (
-              <span
-                key={index}
-                className="text-xs font-semibold bg-white text-purple-800 px-2 py-0.5 rounded"
+          {/* Mobile Dropdown */}
+          <div className="mb-4 lg:hidden">
+            <div className="overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm">
+              <button
+                onClick={() => setIsDropdownOpen((prev) => !prev)}
+                className="flex w-full items-center justify-between bg-gradient-to-r from-indigo-600 via-purple-600 to-purple-500 px-5 py-3.5 text-white"
               >
-                #{tag}
-              </span>
-            ))}
+                <div className="flex items-center gap-2">
+                  <span className="text-xs uppercase tracking-wider text-purple-200">Category:</span>
+                  <span className="font-semibold text-sm">{activeCategory}</span>
+                </div>
+                <motion.svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  animate={{ rotate: isDropdownOpen ? 180 : 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </motion.svg>
+              </button>
+
+              <AnimatePresence>
+                {isDropdownOpen && (
+                  <motion.div
+                    className="max-h-[300px] overflow-y-auto category-scrollbar p-2"
+                    variants={dropdownVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                  >
+                    <ul className="space-y-1">
+                      {categories.map((category, idx) => (
+                        <li key={idx}>
+                          <button
+                            onClick={() => {
+                              setActiveCategory(category)
+                              setIsDropdownOpen(false)
+                            }}
+                            className={`flex items-center justify-between w-full px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all ${
+                              activeCategory === category
+                                ? "bg-purple-600 text-white font-semibold"
+                                : "text-gray-600 hover:bg-purple-50 hover:text-purple-700"
+                            }`}
+                          >
+                            <span>{category}</span>
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
-        )}
-        {post.readTime && (
-          <p className="mt-2 text-xs italic text-right text-purple-300">
-            {post.readTime} min read
-          </p>
-        )}
+
+          {/* Posts Section */}
+          <div ref={topRef} />
+          <section className="w-full lg:flex-1 p-0">
+            <header className="flex items-center justify-between mb-6 pb-4 border-b border-gray-200/80">
+              <h2 className="text-xl md:text-2xl font-bold text-gray-900 tracking-tight">
+                <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                  {activeCategory}
+                </span>{" "}
+                Articles
+              </h2>
+              <span className="text-sm font-medium text-gray-500 bg-white px-3 py-1 rounded-full border border-gray-200 shadow-sm">
+                {filteredPosts.length} {filteredPosts.length === 1 ? "article" : "articles"} found
+              </span>
+            </header>
+
+            <AnimatePresence mode="wait">
+              {loading ? (
+                <motion.div
+                  key="loading"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="flex h-64 items-center justify-center"
+                >
+                  <div className="h-10 w-10 animate-spin rounded-full border-4 border-gray-200 border-t-purple-600" />
+                </motion.div>
+              ) : filteredPosts.length === 0 ? (
+                <motion.div
+                  key="empty"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  className="flex h-64 flex-col items-center justify-center text-center bg-white rounded-2xl border border-gray-100 p-8 shadow-sm"
+                >
+                  <div className="h-12 w-12 rounded-full bg-purple-50 flex items-center justify-center text-purple-600 mb-3">
+                    <Search className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-1">No articles found</h3>
+                  <p className="text-gray-500 text-sm max-w-sm">
+                    We couldn&apos;t find any articles matching your search. Try another category or different keywords.
+                  </p>
+                  <Button
+                    onClick={() => {
+                      setActiveCategory("All")
+                      setSearchQuery("")
+                    }}
+                    className="mt-4 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-xs px-5 py-2 hover:scale-105 transition-transform"
+                  >
+                    View All Articles
+                  </Button>
+                </motion.div>
+              ) : (
+                <motion.div
+                  key={`posts-page-${currentPage}-${activeCategory}-${searchQuery}`}
+                  variants={containerVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit={{ opacity: 0 }}
+                  className="space-y-6"
+                >
+                  <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+                    {paginatedPosts.map((post) => (
+                      <motion.article
+                        key={post.id || post.slug}
+                        variants={itemVariants}
+                        whileHover={{ y: -6, transition: { duration: 0.25 } }}
+                        className="group flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-purple-300 shadow-sm hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-300"
+                      >
+                        <Link href={`/blogs/${post.slug}`} className="flex flex-col h-full w-full">
+                          {/* Card Thumbnail */}
+                          <div className="relative h-48 w-full overflow-hidden bg-gray-100">
+                            {post.image ? (
+                              <Image
+                                src={post.image}
+                                alt={post.title}
+                                fill
+                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                              />
+                            ) : (
+                              <div className="bg-gradient-to-br from-purple-100 to-indigo-100 h-full w-full flex items-center justify-center">
+                                <span className="text-purple-600 font-semibold text-sm">Saavik Solutions</span>
+                              </div>
+                            )}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />
+                          </div>
+
+                          {/* Card Content */}
+                          <div className="flex flex-col justify-between flex-1 p-5">
+                            <div>
+                              {/* Date & Read Time */}
+                              <div className="flex items-center justify-between text-xs text-gray-400 mb-2.5">
+                                {post.date && (
+                                  <div className="flex items-center gap-1.5">
+                                    <Calendar className="h-3.5 w-3.5 text-purple-500" />
+                                    <time>
+                                      {new Date(post.date).toLocaleDateString("en-US", {
+                                        month: "short",
+                                        day: "numeric",
+                                        year: "numeric",
+                                      })}
+                                    </time>
+                                  </div>
+                                )}
+                                {post.readTime && (
+                                  <div className="flex items-center gap-1 text-purple-600 font-medium">
+                                    <Clock className="h-3 w-3" />
+                                    <span>{post.readTime} min read</span>
+                                  </div>
+                                )}
+                              </div>
+
+                              {/* Title */}
+                              <h3 className="text-lg font-bold text-gray-900 group-hover:text-purple-600 transition-colors line-clamp-2 leading-snug mb-2">
+                                {post.title}
+                              </h3>
+
+                              {/* Excerpt */}
+                              <p className="text-sm text-gray-600 line-clamp-2 leading-relaxed mb-4">
+                                {post.excerpt}
+                              </p>
+                            </div>
+
+                            {/* Tags & Author */}
+                            <div className="pt-3 border-t border-gray-100 mt-auto">
+                              {Array.isArray(post.tags) && post.tags.length > 0 && (
+                                <div className="flex flex-wrap gap-1.5 mb-3">
+                                  {post.tags.slice(0, 3).map((tag: string, index: number) => (
+                                    <span
+                                      key={index}
+                                      className="text-[11px] font-medium bg-purple-50 text-purple-700 px-2.5 py-0.5 rounded-full border border-purple-100"
+                                    >
+                                      #{tag}
+                                    </span>
+                                  ))}
+                                </div>
+                              )}
+                              <div className="flex items-center justify-between text-xs">
+                                <span className="font-medium text-gray-500 truncate max-w-[140px]">
+                                  {post.author}
+                                </span>
+                                <span className="font-semibold text-purple-600 group-hover:translate-x-1 transition-transform flex items-center gap-1">
+                                  Read Article <ArrowRight className="h-3 w-3 inline" />
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </Link>
+                      </motion.article>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {/* Pagination Controls */}
+            {totalPages > 1 && (
+              <div className="flex justify-center items-center gap-2 mt-12">
+                <button
+                  onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                  disabled={currentPage === 1}
+                  className="px-4 py-2 rounded-xl text-sm font-medium bg-white border border-gray-200 text-gray-700 hover:bg-purple-50 hover:text-purple-700 hover:border-purple-300 disabled:opacity-40 disabled:hover:bg-white disabled:hover:text-gray-700 disabled:hover:border-gray-200 transition-all shadow-sm"
+                >
+                  Previous
+                </button>
+
+                <div className="flex items-center gap-1">
+                  {Array.from({ length: totalPages }, (_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setCurrentPage(i + 1)}
+                      className={`w-9 h-9 rounded-xl text-sm font-semibold transition-all ${
+                        currentPage === i + 1
+                          ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md shadow-purple-600/30"
+                          : "bg-white border border-gray-200 text-gray-700 hover:bg-purple-50 hover:text-purple-700"
+                      }`}
+                    >
+                      {i + 1}
+                    </button>
+                  ))}
+                </div>
+
+                <button
+                  onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                  disabled={currentPage === totalPages}
+                  className="px-4 py-2 rounded-xl text-sm font-medium bg-white border border-gray-200 text-gray-700 hover:bg-purple-50 hover:text-purple-700 hover:border-purple-300 disabled:opacity-40 disabled:hover:bg-white disabled:hover:text-gray-700 disabled:hover:border-gray-200 transition-all shadow-sm"
+                >
+                  Next
+                </button>
+              </div>
+            )}
+          </section>
+        </div>
       </div>
-    </Link>
-  </motion.article>
-))}
 
-  </div> 
-</motion.div>
-
-      )}
-    </AnimatePresence>
-  </div>
- {totalPages > 1 && (
-  <div className="flex justify-center items-center gap-4 mt-8 text-white">
-    <button
-      onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-      disabled={currentPage === 1}
-      className="px-4 py-2 bg-purple-700 rounded disabled:opacity-50 hover:bg-purple-800 transition"
-    >
-      Prev
-    </button>
-
-    <div className="flex gap-1">
-      {Array.from({ length: totalPages }, (_, i) => (
-        <button
-          key={i}
-          onClick={() => setCurrentPage(i + 1)}
-          className={`px-3 py-1 rounded text-sm font-semibold ${
-            currentPage === i + 1
-              ? 'bg-purple-500 text-white'
-              : 'bg-gray-700 text-white hover:bg-gray-600'
-          } transition`}
-        >
-          {i + 1}
-        </button>
-      ))}
-    </div>
-
-    <button
-      onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-      disabled={currentPage === totalPages}
-      className="px-4 py-2 bg-purple-700 rounded disabled:opacity-50 hover:bg-purple-800 transition"
-    >
-      Next
-    </button>
-  </div>
-)}
-</section>
-</div>      
-      {/* Chat Button */}
+      {/* Floating Chat Button */}
       <div className="fixed bottom-6 right-6 z-50">
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 1, type: "spring" }}
+          transition={{ delay: 0.5, type: "spring" }}
         >
-          <Button size="icon" className="h-14 w-14 rounded-full bg-primary hover:bg-primary/90 shadow-lg">
-            <MessageCircle className="h-6 w-6" />
-          </Button>
+          <Link href="/contact-us">
+            <Button
+              size="icon"
+              className="h-14 w-14 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white shadow-xl shadow-purple-600/30 transition-transform duration-300 hover:scale-110"
+              aria-label="Contact us"
+            >
+              <MessageCircle className="h-6 w-6" />
+            </Button>
+          </Link>
         </motion.div>
       </div>
-</div>    
+    </div>
   )
 }
