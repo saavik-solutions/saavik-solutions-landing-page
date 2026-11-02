@@ -1,4 +1,5 @@
 "use client"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 
@@ -22,9 +23,11 @@ export default function LetsDiscuss() {
               Share your project idea and we&apos;ll provide a free consultation on how we will turn it into an amazing
               digital product.
             </p>
-            <Button className="w-full rounded-full bg-gradient-to-tr from-[#6A43E7] via-[#7F38E8] to-[#E879F9] py-6 text-base font-medium text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl md:max-w-xs">
-              GET A QUOTE
-            </Button>
+            <Link href="/contact-us">
+              <Button className="w-full rounded-full bg-gradient-to-tr from-[#6A43E7] via-[#7F38E8] to-[#E879F9] py-6 text-base font-medium text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl md:max-w-xs">
+                GET A QUOTE
+              </Button>
+            </Link>
           </motion.div>
 
           {/* Right Column - Map */}

@@ -78,9 +78,11 @@ export default function Footer() {
             Share your project idea and we&apos;ll provide a free consultation on how we will turn it into an amazing digital product.
           </p>
           <Magnet padding={50} disabled={!isDesktop} magnetStrength={2}>
-            <button className="rounded-full bg-white px-6 py-3 md:px-10 md:py-4 text-xs md:text-base font-bold text-[#4F46E5] shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg flex items-center gap-2 relative z-10">
-              GET A QUOTE <ArrowRight className="w-4 h-4 md:w-5 md:h-5 ml-1" />
-            </button>
+            <Link href="/contact-us">
+              <button className="rounded-full bg-white px-6 py-3 md:px-10 md:py-4 text-xs md:text-base font-bold text-[#4F46E5] shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg flex items-center gap-2 relative z-10">
+                GET A QUOTE <ArrowRight className="w-4 h-4 md:w-5 md:h-5 ml-1" />
+              </button>
+            </Link>
           </Magnet>
         </motion.div>
       </div>
